@@ -2,13 +2,13 @@
 
 import React, { useEffect } from "react";
 
-import Header from "../components/Header";
-import HeroSection from "../components/HeroSection";
-import AboutSection from "../components/AboutSection";
-import ProjectsSection from "../components/ProjectSection";
-import ResumeSection from "../components/ResumeSection";
+import Header from "../components/header";
+import HeroSection from "../components/heroSection";
+import AboutSection from "../components/aboutSection";
+import ProjectsSection from "../components/projectSection";
+import ResumeSection from "../components/resumeSection";
 import ContactSection from "../components/contactSection";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 
 
 const App = () => {
