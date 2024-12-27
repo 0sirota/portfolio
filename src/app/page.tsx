@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react"
+
 
 import Header from "../components/header";
 import HeroSection from "../components/heroSection";
