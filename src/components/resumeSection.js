@@ -4,10 +4,10 @@ import React from "react";
 
 const Resume = () => {
     return (
-        <section id="resume" className="py-20 bg-gray-200">
+        <section id="resume" className="py-20 bg-zinc-900 text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-6">My Resume</h2>
-          <p className="text-lg text-gray-700 mb-6">
+          <p className="text-lg text-white mb-6">
             Check out my resume to learn more about my education, experience, and skills.
           </p>
           <div>
