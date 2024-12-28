@@ -8,10 +8,16 @@ export function PlaceholdersAndVanishInput({
   placeholders,
   onChange,
   onSubmit,
+  id,
+  name,
+  type = "text", // Default type to "text"
 }: {
   placeholders: string[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  id?: string; // Optional `id` property
+  name?: string; // Optional `name` property
+  type?: string; // Optional `type` property, defaults to "text"
 }) {
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 
@@ -185,6 +191,9 @@ export function PlaceholdersAndVanishInput({
         ref={canvasRef}
       />
       <input
+        id={id}
+        name={name}
+        type={type}
         onChange={(e) => {
           if (!animating) {
             setValue(e.target.value);
@@ -194,7 +203,6 @@ export function PlaceholdersAndVanishInput({
         onKeyDown={handleKeyDown}
         ref={inputRef}
         value={value}
-        type="text"
         className={cn(
           "w-full relative text-sm sm:text-base z-50 border-none dark:text-white bg-transparent text-black h-full rounded-sm focus:outline-none focus:ring-0 pl-4 sm:pl-4 pr-20",
           animating && "text-transparent dark:text-transparent"
