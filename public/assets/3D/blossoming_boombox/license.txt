@@ -1,0 +1,11 @@
+Model Information:
+* title:	Blossoming Boombox!
+* source:	https://sketchfab.com/3d-models/blossoming-boombox-c589c0f8ea024a8d9e7ce859a3a0f965
+* author:	Kigha (https://sketchfab.com/Kigha)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Blossoming Boombox!" (https://sketchfab.com/3d-models/blossoming-boombox-c589c0f8ea024a8d9e7ce859a3a0f965) by Kigha (https://sketchfab.com/Kigha) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

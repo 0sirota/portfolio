@@ -63,7 +63,7 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           {/* Logo */}
           <Image
-            src="/assets/logo5.png"
+            src="/assets/logos/logo5.png"
             alt="Logo"
             width={60}
             height={60}

@@ -12,14 +12,14 @@ const Resume = () => {
           </p>
           <div>
             <a 
-              href="/assets/CV.pdf" 
+              href="/assets/CV/CV.pdf" 
               target="_blank" 
               className="text-white bg-blue-500 px-6 py-3 rounded-lg hover:bg-blue-600 inline-block"
             >
               View Resume
             </a>
             <a 
-              href="/assets/CV.pdf" 
+              href="/assets/CV/CV.pdf" 
               download 
               className="text-white bg-green-500 px-6 py-3 rounded-lg hover:bg-green-600 inline-block ml-4"
             >
