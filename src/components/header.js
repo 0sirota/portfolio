@@ -6,6 +6,7 @@ import {
   IconBrandGithub,
   IconBriefcase,
   IconFileText,
+  IconMessage,
   IconMail,
   IconHome,
   IconBrandLinkedin,
