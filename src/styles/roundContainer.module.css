@@ -1,0 +1,7 @@
+.round-container {
+    width: 800px;
+    height: 800px; /* Equal width and height to make it round */
+    border-radius: 50%; /* Makes it a circle */
+    overflow: hidden; /* Ensures anything outside the circle is hidden */
+    border: 2px solid #fff; /* Optional: border to highlight the container */
+  }
