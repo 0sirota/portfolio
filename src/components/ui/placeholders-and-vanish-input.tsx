@@ -1,5 +1,3 @@
-"use client";
-
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -10,14 +8,14 @@ export function PlaceholdersAndVanishInput({
   onSubmit,
   id,
   name,
-  type = "text", // Default type to "text"
+  type = "text",
 }: {
   placeholders: string[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  id?: string; // Optional `id` property
-  name?: string; // Optional `name` property
-  type?: string; // Optional `type` property, defaults to "text"
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void; // Made optional
+  id?: string;
+  name?: string;
+  type?: string;
 }) {
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 
@@ -30,10 +28,10 @@ export function PlaceholdersAndVanishInput({
 
   const handleVisibilityChange = () => {
     if (document.visibilityState !== "visible" && intervalRef.current) {
-      clearInterval(intervalRef.current); // Clear the interval when the tab is not visible
+      clearInterval(intervalRef.current);
       intervalRef.current = null;
     } else if (document.visibilityState === "visible") {
-      startAnimation(); // Restart the interval when the tab becomes visible
+      startAnimation();
     }
   };
 
@@ -173,6 +171,12 @@ export function PlaceholdersAndVanishInput({
         0
       );
       animate(maxX);
+    }
+
+    if (onSubmit) {
+      onSubmit({
+        preventDefault: () => {},
+      } as React.FormEvent<HTMLFormElement>); // Manually cast to the correct type
     }
   };
 
