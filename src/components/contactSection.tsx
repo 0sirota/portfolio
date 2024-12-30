@@ -74,8 +74,10 @@ const Contact = () => {
 
   return (
     <section id="contact" className="bg-zinc-900">
-      
+      <h2 className="text-4xl font-bold mb-6 text-white text-center">Contact</h2>
+
       <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-zinc-900">
+        
       
         <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-white dark:bg-zinc-900">
           <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-300">Contact Me</h2>
