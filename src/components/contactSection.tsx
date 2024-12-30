@@ -9,6 +9,13 @@ import { IconAppWindow } from "@tabler/icons-react";
 import Image from "next/image";
 import emailjs from "emailjs-com";
 
+
+import {
+  IconPhone,
+  IconMail,
+
+} from "@tabler/icons-react";
+
 const Contact = () => {
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -67,7 +74,9 @@ const Contact = () => {
 
   return (
     <section id="contact" className="bg-zinc-900">
+      
       <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-zinc-900">
+      
         <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-white dark:bg-zinc-900">
           <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-300">Contact Me</h2>
 
@@ -124,10 +133,18 @@ const Contact = () => {
             <button
               className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
               type="submit"
-            >
+            > 
               Send &rarr;
-              <BottomGradient />
+              <BottomGradient />  
             </button>
+
+
+              <p className="text-sm py-3 text-neutral-300 ">
+               Phone: <a href="tel:+61499577855" className="text-neutral-300 hover:underline hover:text-cyan-400">+61-499-577-855</a>
+             </p>
+             <p className="text-sm text-neutral-300">
+               Email: <a href="mailto:oliver.sirota@gmail.com" className="text-neutral-300 hover:underline hover:text-cyan-400">oliver.sirota@gmail.com</a>
+             </p>
 
           </form>
         </BackgroundGradient>
@@ -162,32 +179,3 @@ const LabelInputContainer = ({
 };
 
 export default Contact;
-
-
-
-// const Contact = () => {
-//     return (
-//         <section id="contact" className="py-20">
-//         <div className="container mx-auto px-6 text-center">
-//           <h2 className="text-4xl font-bold mb-6">Contact Me</h2>
-//           <p className="text-lg text-gray-700 mb-6">
-//             Feel free to reach out for collaborations, inquiries, or just a chat!
-//           </p>
-//           <div className="space-y-4">
-
-//             <p className="text-lg">
-//               <strong>Phone:</strong> <a href="tel:+61499577855" className="text-blue-500 hover:underline">+61-499-577-855</a>
-//             </p>
-//             <p className="text-lg">
-//               <strong>Email:</strong> <a href="mailto:oliver.sirota@gmail.com" className="text-blue-500 hover:underline">oliver.sirota@gmail.com</a>
-//             </p>
-//             <p className="text-lg">
-//               <strong>LinkedIn:</strong> 
-//               <a href="https://linkedin.com/in/oliver-sirota" target="_blank" className="text-blue-500 hover:underline">linkedin.com/in/oliver-sirota</a>
-//             </p>
-//           </div>
-//         </div>
-//       </section>
-//   );
-// };
-
