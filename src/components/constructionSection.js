@@ -8,7 +8,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"; // Im
 
 
 
-const Hero = () => {
+const Construction = () => {
   const containerRef = useRef(null); // Reference to the container div
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Hero = () => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(1200, 700);     //renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x18181B, 1); // Sets the background color of the Three.js scene to bg-zinc-900
 
     containerRef.current.appendChild(renderer.domElement);
@@ -41,34 +41,33 @@ const Hero = () => {
     const loader = new GLTFLoader();
     let mixer; // Animation mixer to handle animations
     loader.load(
-      '/assets/3D/construction_barricades/scene.gltf',
-      // '/assets/3D/space_ame_camping_-_amelia_watson_hololive/scene.gltf',
+        '/assets/3D/construction_barricades/scene.gltf',
+        (gltf) => {
+          console.log('GLTF model loaded successfully');
       
-      // '/assets/3D/smol_ame_in_an_upcycled_terrarium_hololiveen/scene.gltf', // Correct path to your GLTF model
-      (gltf) => {
-        console.log('GLTF model loaded successfully');
-
-        // Scale the entire model to make it smaller
-        gltf.scene.scale.set(0.5, 0.5, 0.5); // Scale down by 50%
-
-        scene.add(gltf.scene); // Add the model to the scene
-
-        // Set up the animation mixer for animations
-        mixer = new THREE.AnimationMixer(gltf.scene);
-
-        // Play all animations from the model
-        gltf.animations.forEach((clip) => {
-          mixer.clipAction(clip).play(); // Play each animation clip
-        });
-      },
-      undefined, // Optional progress handler
-      (error) => {
-        console.error('Error loading GLTF model:', error);
-      }
-    );
+          // Scale the model
+          gltf.scene.scale.set(1, 1, 1);
+      
+          // ✅ Set initial rotation (Adjust as needed)
+          gltf.scene.rotation.set(-Math.PI / 4, 0, 0); // Rotate 45 degrees on the Y-axis
+      
+          // Add the model to the scene
+          scene.add(gltf.scene);
+      
+          // Set up animations
+          mixer = new THREE.AnimationMixer(gltf.scene);
+          gltf.animations.forEach((clip) => {
+            mixer.clipAction(clip).play();
+          });
+        },
+        undefined,
+        (error) => {
+          console.error('Error loading GLTF model:', error);
+        }
+      );
 
     // Position the camera
-    camera.position.set(0, 1, 3); // Adjust the camera to focus on the model
+    camera.position.set(0, 1, 0.5); // Adjust the camera to focus on the model
 
     // Add OrbitControls for better interaction (zoom, rotate)
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -121,21 +120,21 @@ const Hero = () => {
 
 
   return (
-    <section id="resume" className="py-20 bg-zinc-900 text-white">
-      <section className="bg-zinc-900 text-white py-20">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-5xl font-bold mb-4">Welcome to My Portfolio</h2>
-        <p className="text-lg">Showcasing my skills, projects, and experiences.</p>
+    <section id="construction" className="py-10 bg-zinc-900 text-white">
+      <section className="bg-zinc-900 text-white py-5">
+      <div className="container mx-auto px-6 text-center mb-4">
+        <h2 className="text-8xl font-bold mb-4" style={{ fontSize: "2rem" }}>This page is under construction</h2>
       </div>
       </section>
 
       {/* 3D Model Container */}
-      <div ref={containerRef} style={{ width: "100%", height: "500px" }} className="px-6 py-100 hidden"></div>
+      <div ref={containerRef} className="w-full h-[100px] flex justify-center"></div>
+
     </section>
   );
 };
 
-export default Hero;
+export default Construction;
 
 
 

@@ -12,6 +12,9 @@ import MacbookScrollDemo from "../components/macbook";
 import { TracingBeam } from "../components/ui/tracing-beam";
 
 
+import ConstructionSection from "../components/constructionSection";
+
+
 export default function App() {
   useEffect(() => {
     // Apply dark mode by default when the component mounts
@@ -21,6 +24,7 @@ export default function App() {
   return (
     <div className="bg-gray-100 text-gray-900 min-h-screen">
       <Header />
+      <ConstructionSection />
       <HeroSection />
       <AboutSection />
       <ProjectsSection />

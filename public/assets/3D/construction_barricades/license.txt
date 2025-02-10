@@ -1,0 +1,11 @@
+Model Information:
+* title:	Construction Barricades
+* source:	https://sketchfab.com/3d-models/construction-barricades-32fd7c8c35854920b9557d1aa71af3fe
+* author:	rollthebryce (https://sketchfab.com/rollthebryce)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Construction Barricades" (https://sketchfab.com/3d-models/construction-barricades-32fd7c8c35854920b9557d1aa71af3fe) by rollthebryce (https://sketchfab.com/rollthebryce) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
