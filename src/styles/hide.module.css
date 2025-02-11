@@ -1,0 +1,23 @@
+/* hide.module.css */
+
+.sectionHidden {
+    background-color: black; /* Set the background color */
+    opacity: 0; /* Fade out the content */
+    max-height: 0; /* Collapse the height */
+    visibility: hidden; /* Make it fully invisible after transition */
+    padding: 0; /* Remove padding */
+    overflow: hidden; /* Ensure no overflow is visible */
+    
+    /* Transition properties */
+    transition: opacity 3s ease-out, max-height 3s ease-out, padding 3s ease-out;
+  }
+  
+  /* For the transition to max-height, we need to set an initial value for it */
+  .sectionVisible {
+    max-height: 500px; /* Set a large enough max-height for the section */
+    opacity: 1; /* Make the section visible */
+    visibility: visible; /* Keep it visible */
+    padding: 20px; /* Optionally add some padding */
+    transition: opacity 3s ease-out, max-height 3s ease-out, padding 3s ease-out;
+  }
+  
