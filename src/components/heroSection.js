@@ -1,136 +1,63 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState  } from "react";
 import * as THREE from "three"; // Import the core Three.js
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"; // Import GLTFLoader
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"; // Import OrbitControls
 
+import { TypewriterEffectSmooth } from ".//ui/typewriter-effect";
+import { TypewriterEffect } from ".//ui/typewriter-effect";
 
 
 
 const Hero = () => {
   const containerRef = useRef(null); // Reference to the container div
 
-  useEffect(() => {
-    // Set up the scene, camera, and renderer
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x18181B, 1); // Sets the background color of the Three.js scene to bg-zinc-900
+  const [isHidden, setIsHidden] = useState(false);
 
-    containerRef.current.appendChild(renderer.domElement);
+  const words1 = [
 
-    // Set up the ambient light to provide basic lighting to the scene
-    const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // Soft ambient light
-    scene.add(ambientLight);
+    {
+      text: "Hi 👋",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ];
 
-    // Add a point light to illuminate the model more directly
-    const pointLight = new THREE.PointLight(0xffffff, 2, 100);
-    pointLight.position.set(5, 5, 5); // Position the point light
-    scene.add(pointLight);
+  const words2 = [
 
-    // Add a directional light to provide stronger, more focused light (like sunlight)
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5).normalize(); // Position and normalize the direction
-    scene.add(directionalLight);
+    {
+      text: "My name is Oliver Sirota.",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ];
 
-    // Load the textures using THREE.TextureLoader
+  const words3 = [
 
-    // Load the GLTF model using GLTFLoader
-    const loader = new GLTFLoader();
-    let mixer; // Animation mixer to handle animations
-    loader.load(
-      '/assets/3D/construction_barricades/scene.gltf',
-      // '/assets/3D/space_ame_camping_-_amelia_watson_hololive/scene.gltf',
-      
-      // '/assets/3D/smol_ame_in_an_upcycled_terrarium_hololiveen/scene.gltf', // Correct path to your GLTF model
-      (gltf) => {
-        console.log('GLTF model loaded successfully');
-
-        // Scale the entire model to make it smaller
-        gltf.scene.scale.set(0.5, 0.5, 0.5); // Scale down by 50%
-
-        scene.add(gltf.scene); // Add the model to the scene
-
-        // Set up the animation mixer for animations
-        mixer = new THREE.AnimationMixer(gltf.scene);
-
-        // Play all animations from the model
-        gltf.animations.forEach((clip) => {
-          mixer.clipAction(clip).play(); // Play each animation clip
-        });
-      },
-      undefined, // Optional progress handler
-      (error) => {
-        console.error('Error loading GLTF model:', error);
-      }
-    );
-
-    // Position the camera
-    camera.position.set(0, 1, 3); // Adjust the camera to focus on the model
-
-    // Add OrbitControls for better interaction (zoom, rotate)
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.25;
-    controls.screenSpacePanning = false;
-
-    // controls.maxPolarAngle = Math.PI / 2; // Limit vertical rotation (no up/down rotation)
-    // controls.minPolarAngle = Math.PI / 2; // No negative vertical rotation (no up/down movement)
-  
-
-    controls.enabled = true; // Disable interaction
-    controls.enableRotate = true;
-    controls.enableZoom = true;   // Disable zoom
-    controls.enablePan = true;    // Disable panning (moving the model)
-
- 
-
-    // Update camera aspect ratio and renderer size on window resize
-    const onWindowResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-
-    };
-    window.addEventListener('resize', onWindowResize);
-
-    // Set up an animation loop to render the scene and animate the model
-    function animate() {
-      requestAnimationFrame(animate);
-
-      if (mixer) {
-        mixer.update(0.01); // Update the animation mixer with a small delta time for smoother animation
-      }
-
-      // controls.update(); // Update controls for smooth interaction
-      renderer.render(scene, camera);
-    }
-
-    animate();
-
-    // Clean up the scene and listeners on component unmount
-    return () => {
-      window.removeEventListener('resize', onWindowResize);
-      renderer.dispose();
-    };
-  }, []);
+    {
+      text: "Welcome to my portfolio.",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ];
 
 
 
 
   return (
-    <section id="resume" className="py-20 bg-zinc-900 text-white">
-      <section className="bg-zinc-900 text-white py-20">
-      <div className="container mx-auto px-6 text-center">
+    <section id="resume" className="dark:bg-zinc-950 text-white">
+      <section className="dark:bg-zinc-950 text-white py-2">
+      <div className="container mx-auto  text-center">
+      <TypewriterEffectSmooth words={words1} duration={0.4} delay={1}/>
+      <TypewriterEffectSmooth words={words2} duration={1.1} delay={2.5} />
+      <TypewriterEffectSmooth words={words3}  duration={1.1} delay={5}/>
+
+{/* 
         <h2 className="text-5xl font-bold mb-4">Welcome to My Portfolio</h2>
-        <p className="text-lg">Showcasing my skills, projects, and experiences.</p>
+        <p className="text-lg">Showcasing my skills, projects, and experiences.</p> */}
       </div>
       </section>
 
       {/* 3D Model Container */}
-      <div ref={containerRef} style={{ width: "100%", height: "500px" }} className="px-6 py-100 hidden"></div>
+      {/* <div ref={containerRef} style={{ width: "100%", height: "500px" }} className="px-6 py-100 hidden"></div> */}
     </section>
   );
 };
