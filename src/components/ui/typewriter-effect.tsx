@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const TypewriterEffect = ({
   words,
@@ -102,6 +102,8 @@ export const TypewriterEffectSmooth = ({
   words,
   className,
   cursorClassName,
+  duration = 2, // Default typing duration
+  delay = 1, // Default delay before starting
 }: {
   words: {
     text: string;
@@ -109,35 +111,45 @@ export const TypewriterEffectSmooth = ({
   }[];
   className?: string;
   cursorClassName?: string;
+  duration?: number;
+  delay?: number;
 }) => {
-  // split text inside of words into array of characters
-  const wordsArray = words.map((word) => {
-    return {
-      ...word,
-      text: word.text.split(""),
-    };
-  });
+  const [isTypingFinished, setIsTypingFinished] = useState(false); // State to track typing completion
+  
+  // Split words into an array of characters
+  const wordsArray = words.map((word) => ({
+    ...word,
+    text: word.text.split(""),
+  }));
+
   const renderWords = () => {
     return (
       <div>
-        {wordsArray.map((word, idx) => {
-          return (
-            <div key={`word-${idx}`} className="inline-block">
-              {word.text.map((char, index) => (
-                <span
-                  key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}
-                >
-                  {char}
-                </span>
-              ))}
-              &nbsp;
-            </div>
-          );
-        })}
+        {wordsArray.map((word, idx) => (
+          <div key={`word-${idx}`} className="inline-block">
+            {word.text.map((char, index) => (
+              <span
+                key={`char-${index}`}
+                className={cn(`dark:text-white text-black`, word.className)}
+              >
+                {char}
+              </span>
+            ))}
+            &nbsp;
+          </div>
+        ))}
       </div>
     );
   };
+
+  useEffect(() => {
+    // After typing is completed, set the cursor visibility to false
+    const timer = setTimeout(() => {
+      setIsTypingFinished(true); // Cursor will be hidden after typing finishes
+    }, duration * 1000 + delay * 1000); // Adjust this based on your typing duration and delay
+
+    return () => clearTimeout(timer); // Cleanup timeout
+  }, [duration, delay]);
 
   return (
     <div className={cn("flex space-x-1 my-6", className)}>
@@ -150,38 +162,40 @@ export const TypewriterEffectSmooth = ({
           width: "fit-content",
         }}
         transition={{
-          duration: 2,
+          duration: duration, // Adjusted duration
           ease: "linear",
-          delay: 1,
+          delay: delay, // Adjusted delay
         }}
       >
         <div
-          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold"
+          className="text-xs sm:text-base md:text-xl lg:text-3xl xl:text-5xl font-bold"
           style={{
             whiteSpace: "nowrap",
           }}
         >
           {renderWords()}{" "}
-        </div>{" "}
+        </div>
       </motion.div>
-      <motion.span
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.8,
-
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        className={cn(
-          "block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-blue-500",
-          cursorClassName
-        )}
-      ></motion.span>
+      {!isTypingFinished && (
+        <motion.span
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className={cn(
+            "block rounded-sm w-[4px] h-4 sm:h-6 xl:h-12 bg-blue-500",
+            cursorClassName
+          )}
+        ></motion.span>
+      )}
     </div>
   );
 };
+
