@@ -22,14 +22,14 @@ export default function App() {
   }, []);
 
   return (
-    <div className="bg-gray-100 text-gray-900 min-h-screen">
+    <div className=" min-h-screen">
       <Header />
-      <ConstructionSection />
+      {/* <ConstructionSection /> */}
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
       <ResumeSection />
-      {/* <MacbookScrollDemo /> */}
+      <MacbookScrollDemo />
       <ContactSection />
 
 
