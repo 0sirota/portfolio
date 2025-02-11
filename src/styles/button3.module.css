@@ -25,7 +25,7 @@
   
   .button-item {
     background-color: transparent;
-    color: #dbdbdb;
+    color: #2b2b2b;
   }
 
   .button-item:hover {
@@ -35,7 +35,7 @@
   
   .button-item .button-bg {
     border: 2px solid rgb(185, 185, 185); 
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(206, 206, 206);
   }
 
   .button-bg-layer.-purple {
@@ -48,7 +48,7 @@
   
   .button-bg-layer.-yellow {
     --tw-bg-opacity: 1;
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(176, 236, 35);
   }
   
   
