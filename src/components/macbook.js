@@ -1,10 +1,11 @@
+"use client";
+
 import React from "react";
 import { MacbookScroll } from "./ui/macbook-scroll";
-import Link from "next/link";
 
 export default function MacbookScrollDemo() {
   return (
-    (<div className="overflow-hidden bg-zinc-900 w-full">
+    (<div className="overflow-hidden bg-zinc-950 w-full">
       <MacbookScroll
         title={
           <span>
