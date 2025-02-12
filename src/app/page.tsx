@@ -29,7 +29,7 @@ export default function App() {
       <AboutSection />
       <ProjectsSection />
       <ResumeSection />
-      <MacbookScrollDemo />
+      {/* <MacbookScrollDemo /> */}
       <ContactSection />
 
 
