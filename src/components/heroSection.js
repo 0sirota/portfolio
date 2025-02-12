@@ -43,7 +43,7 @@ const Hero = () => {
 
 
   return (
-    <section id="resume" className="dark:bg-zinc-950 text-white">
+    <section id="hero" className="dark:bg-zinc-950 text-white">
       <section className="dark:bg-zinc-950 text-white py-2">
       <div className="container mx-auto  text-center">
       <TypewriterEffectSmooth words={words1} duration={0.4} delay={1}/>

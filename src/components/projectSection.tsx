@@ -298,7 +298,7 @@ const Project = () => {
     }
   ];
   return (
-    <div className="w-full">
+    <div id="projects" className="w-full">
       <Timeline data={data} />
     </div>
   );
