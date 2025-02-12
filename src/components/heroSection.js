@@ -18,7 +18,7 @@ const Hero = () => {
   const words1 = [
 
     {
-      text: "Hi 👋",
+      text: "Hi!👋",
       className: "text-blue-500 dark:text-blue-500",
     },
   ];
@@ -34,7 +34,7 @@ const Hero = () => {
   const words3 = [
 
     {
-      text: "Welcome to my portfolio.",
+      text: "Welcome to my portfolio!",
       className: "text-blue-500 dark:text-blue-500",
     },
   ];
