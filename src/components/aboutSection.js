@@ -118,7 +118,7 @@ const About = () => {
           ref={containerRef}
           className="w-full md:w-2/5 px-0"
           style={{
-            height: "800px",
+            height: "600px",
             width: "100%",
           }}
         ></div>
