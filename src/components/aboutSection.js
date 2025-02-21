@@ -88,7 +88,7 @@ const About = () => {
 
     function animate() {
       requestAnimationFrame(animate);
-      if (mixerRef.current) mixerRef.current.update(0.012);
+      if (mixerRef.current) mixerRef.current.update(0.008);
       renderer.render(scene, camera);
     }
     animate();
