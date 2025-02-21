@@ -51,7 +51,7 @@ export const LayoutGrid = ({
               selected?.id === card.id
                 ? `rounded-lg cursor-pointer absolute inset-0 h-[${card.height1}] w-[${card.width1}] m-auto z-50 flex justify-center items-center flex-wrap flex-col`
                 : alternatingLayout
-                  ? `bg-white rounded-xl inset-0 h-[${card.height2}] w-[${card.width2}]`    // When not selected and alternating layout
+                  ? `bg-white rounded-xl inset-0 h-[22vh] w-[20vw]`    // When not selected and alternating layout
                   : "bg-white rounded-xl h-full w-full", // When not selected and not alternating layout
               alternatingLayout && i % 2 === 0 ? "mr-auto" : alternatingLayout ? "ml-auto" : "m-auto"
             )}
