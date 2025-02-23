@@ -28,7 +28,7 @@ export default function App() {
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
-      <ResumeSection />
+      {/* <ResumeSection /> */}
       {/* <MacbookScrollDemo /> */}
       <ContactSection />
 
