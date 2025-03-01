@@ -27,11 +27,11 @@ const Header = () => {
       icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#projects",
     },
-    {
-      title: "Resume",
-      icon: <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#resume",
-    },
+    // {
+    //   title: "Resume",
+    //   icon: <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+    //   href: "#resume",
+    // },
     {
       title: "Contact",
       icon: <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
