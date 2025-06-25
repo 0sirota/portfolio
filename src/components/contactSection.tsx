@@ -16,38 +16,48 @@ import {
 
 } from "@tabler/icons-react";
 
+import { toast } from 'sonner';
+
+
 const Contact = () => {
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Collect form data
+    const form = e.currentTarget; // ✅ Guaranteed to be the form
     const formData = {
-      to_name: "Oliver",              // Recipient's name (could be hardcoded or dynamic)
-      from_name: e.currentTarget.firstname.value,  // Sender's name from the form
-      sender_email: e.currentTarget.email.value,   // Sender's email
-      message: e.currentTarget.message.value,      // Message content from the form
+      to_name: "Oliver",
+      from_name: form.firstname.value,
+      sender_email: form.email.value,
+      message: form.message.value,
     };
 
-    // EmailJS service
     try {
       const response = await emailjs.send(
-        "service_tyg4472",        // Replace with your service ID
-        "template_vhntmpt",       // Replace with your template ID
+        "service_tyg4472",
+        "template_vhntmpt",
         formData,
-        "5pKM4U-9MoeBsdJw-"      // Replace with your user ID from EmailJS
+        "5pKM4U-9MoeBsdJw-"
       );
 
       if (response.status === 200) {
-        alert("Your message was sent successfully!");
+        toast.success("Your message was sent successfully!", {
+          duration: 4000,
+        });
+        form.reset(); // ✅ Safe now
       } else {
-        alert("Failed to send your message.");
+        toast.error("Failed to send message. Please try again.", {
+          duration: 4000,
+        });
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("There was an error sending your message.");
+      toast.error("A network error occurred. Please check your connection and try again.", {
+        duration: 4000,
+      });
     }
-};
+  };
+
 
 
   // Handle input changes
