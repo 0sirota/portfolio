@@ -136,6 +136,7 @@ const Project = () => {
       description: "UI elements from UIverse, an open-source UI component platform.",
       icon: <Image src='/assets/logos/uiverseLogo.png' alt="UIverse.io Logo" width={30} height={30} />,
     },
+
   ];
 
 

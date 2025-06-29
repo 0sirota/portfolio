@@ -54,7 +54,7 @@ const Construction = () => {
         gltf.scene.scale.set(scale, scale, scale);
 
         // gltf.scene.rotation.set(-Math.PI / 4, 0, 0); // Rotate 45 degrees on the Y-axis
-        gltf.scene.position.set(0, 1, 0); // Rotate 45 degrees on the Y-axis
+        gltf.scene.position.set(0, 1, 0); 
         scene.add(gltf.scene);
 
         mixer = new THREE.AnimationMixer(gltf.scene);

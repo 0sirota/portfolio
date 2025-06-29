@@ -1,22 +1,19 @@
 "use client";
 
-import React, { useEffect, useRef, useState  } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three"; // Import the core Three.js
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"; // Import GLTFLoader
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"; // Import OrbitControls
 
 import { TypewriterEffectSmooth } from ".//ui/typewriter-effect";
-import { TypewriterEffect } from ".//ui/typewriter-effect";
-
-
 
 const Hero = () => {
-  const containerRef = useRef(null); // Reference to the container div
-
+  const containerRef = useRef(null); 
+  const rendererRef = useRef(null);  // Ref for the renderer
+  const mixerRef = useRef(null);  // Ref for the animation mixer
   const [isHidden, setIsHidden] = useState(false);
 
   const words1 = [
-
     {
       text: "Hi!👋",
       className: "text-blue-500 dark:text-blue-500",
@@ -24,7 +21,6 @@ const Hero = () => {
   ];
 
   const words2 = [
-
     {
       text: "My name is Oliver Sirota.",
       className: "text-blue-500 dark:text-blue-500",
@@ -32,39 +28,149 @@ const Hero = () => {
   ];
 
   const words3 = [
-
     {
       text: "Welcome to my portfolio!",
       className: "text-blue-500 dark:text-blue-500",
     },
   ];
 
+  useEffect(() => {
+    // Only initialize the scene and renderer if they haven't been created yet
+    if (rendererRef.current) return;  // Skip if already initialized
 
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      containerRef.current.clientWidth / containerRef.current.clientHeight,
+      0.1,
+      1000
+    );
+    const renderer = new THREE.WebGLRenderer({ alpha: true }); // Enable transparency
+    renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
+    renderer.setClearColor(0x09090b, 1);
 
+    containerRef.current.appendChild(renderer.domElement);
+
+    // Save the renderer to the ref so it persists across renders
+    rendererRef.current = renderer;
+
+    const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 2, 100);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5).normalize();
+    scene.add(directionalLight);
+
+    const loader = new GLTFLoader();
+    let mixer;
+    loader.load(
+      "/assets/3D/space_ame_camping_-_amelia_watson_hololive/scene.gltf",
+      (gltf) => {
+        const scale = 1.5;
+        gltf.scene.scale.set(scale, scale, scale);
+        gltf.scene.rotation.set(0, -0.5, 0);
+        // gltf.scene.position.set(0, 0, 0); 
+        scene.add(gltf.scene);
+
+        mixer = new THREE.AnimationMixer(gltf.scene);
+        gltf.animations.forEach((clip) => {
+          const action = mixer.clipAction(clip);
+          action.setLoop(THREE.LoopRepeat, Infinity);
+          action.clampWhenFinished = true;
+          action.play();
+        });
+
+        // Save the mixer to the ref for updates
+        mixerRef.current = mixer;
+      },
+      undefined,
+      (error) => {
+        console.error("Error loading GLTF model:", error);
+      }
+    );
+
+    camera.position.set(-2, 1, 5);
+
+    // const controls = new OrbitControls(camera, renderer.domElement);
+    // controls.enableDamping = true;
+    // controls.dampingFactor = 0.25;
+    // controls.screenSpacePanning = false;
+
+    const onWindowResize = () => {
+      camera.aspect = containerRef.current.clientWidth / containerRef.current.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
+    };
+    window.addEventListener("resize", onWindowResize);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (mixerRef.current) mixerRef.current.update(0.008);
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", onWindowResize);
+      // Clean up the renderer and scene when the component unmounts
+      if (rendererRef.current) {
+        rendererRef.current.dispose();
+      }
+    };
+  }, []);
 
   return (
-    <section id="hero" className="dark:bg-zinc-950 text-white">
-      <section className="dark:bg-zinc-950 text-white py-2">
-      <div className="container mx-auto  text-center">
-      <TypewriterEffectSmooth words={words1} duration={0.4} delay={1}/>
-      <TypewriterEffectSmooth words={words2} duration={1.1} delay={2.5} />
-      <TypewriterEffectSmooth words={words3}  duration={1.1} delay={5}/>
+    <section id="hero" className="dark:bg-zinc-950 text-white relative w-full h-screen overflow-hidden">
+      {/* 3D Model Background */}
+      <div
+        ref={containerRef}
+        className="absolute inset-0 w-full h-full"
+        style={{
+          height: "100vh",
+          width: "100vw",
+        }}
+      ></div>
 
-{/* 
-        <h2 className="text-5xl font-bold mb-4">Welcome to My Portfolio</h2>
-        <p className="text-lg">Showcasing my skills, projects, and experiences.</p> */}
+      {/* Hero Text Overlay - Positioned with padding from left */}
+      <div className="absolute inset-0 flex flex-col justify-center z-10 pointer-events-none">
+        <div 
+          className="text-left"
+          style={{ 
+            marginLeft: '15vw',
+            marginTop: '-35vh',
+            width: 'auto',
+            display: 'block'
+          }}
+        >
+          <TypewriterEffectSmooth 
+            words={words1} 
+            duration={0.4} 
+            delay={1}
+            containerClassName="block my-8"
+            textClassName="text-6xl md:text-7xl lg:text-8xl font-bold"
+          />
+          <TypewriterEffectSmooth 
+            words={words2} 
+            duration={1.1} 
+            delay={2.5}
+            containerClassName="block my-8"
+            textClassName="text-6xl md:text-7xl lg:text-8xl font-bold"
+          />
+          <TypewriterEffectSmooth 
+            words={words3} 
+            duration={1.1} 
+            delay={5}
+            containerClassName="block my-8"
+            textClassName="text-6xl md:text-7xl lg:text-8xl font-bold"
+          />
+        </div>
       </div>
-      </section>
-
-      {/* 3D Model Container */}
-      {/* <div ref={containerRef} style={{ width: "100%", height: "500px" }} className="px-6 py-100 hidden"></div> */}
     </section>
   );
 };
 
 export default Hero;
-
-
-
-
-

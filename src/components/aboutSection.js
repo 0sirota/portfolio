@@ -104,7 +104,7 @@ const About = () => {
 
   return (
     <section className="bg-gray-200 dark:bg-zinc-950 dark:text-white w-full">
-      <div className="container mx-auto px-0 py-1 flex flex-col md:flex-row items-start gap-1">
+      <div className="container mx-auto px-0 py-8 flex flex-col md:flex-row items-start gap-1">
         {/* Left Column */}
         <div className="text-center md:text-left w-full md:w-3/5 self-start px-0">
           <h2 className="text-4xl font-bold mb-6">About Me</h2>
