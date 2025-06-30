@@ -146,27 +146,36 @@ const Hero = () => {
             display: 'block'
           }}
         >
-          <TypewriterEffectSmooth 
-            words={words1} 
-            duration={0.4} 
-            delay={1}
-            containerClassName="block my-8"
-
-          />
-          <TypewriterEffectSmooth 
-            words={words2} 
-            duration={1.1} 
-            delay={2.5}
-            containerClassName="block my-8"
-
-          />
-          <TypewriterEffectSmooth 
-            words={words3} 
-            duration={1.1} 
-            delay={5}
-            containerClassName="block my-8"
-
-          />
+          <div style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
+            <TypewriterEffectSmooth 
+              words={words1} 
+              duration={0.4} 
+              delay={1}
+              containerClassName="block my-8"
+              textClassName="!text-[1em] font-bold"
+            />
+          </div>
+          
+          <div style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
+            <TypewriterEffectSmooth 
+              words={words2} 
+              duration={1.1} 
+              delay={2.5}
+              containerClassName="block my-8"
+              textClassName="!text-[1em] font-bold"
+            />
+          </div>
+          
+          <div style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
+            <TypewriterEffectSmooth 
+              words={words3} 
+              duration={1.1} 
+              delay={5}
+              containerClassName="block my-8"
+              textClassName="!text-[1em] font-bold"
+            />
+          </div>
+          
           <p className="mt-4 text-lg text-zinc-400 italic opacity-80">
             *Best experienced on desktop
           </p>
