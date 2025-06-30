@@ -102,6 +102,7 @@ export const TypewriterEffectSmooth = ({
   words,
   className,
   cursorClassName,
+  textClassName, // Add this prop
   duration = 2, // Default typing duration
   delay = 1, // Default delay before starting
 }: {
@@ -111,6 +112,7 @@ export const TypewriterEffectSmooth = ({
   }[];
   className?: string;
   cursorClassName?: string;
+  textClassName?: string; // Add this prop type
   duration?: number;
   delay?: number;
 }) => {
@@ -168,9 +170,10 @@ export const TypewriterEffectSmooth = ({
         }}
       >
         <div
-          className="text-5xl md:text-6xl lg:text-7xl font-bold"
+          className={cn("font-bold", textClassName)} // Use textClassName prop instead of hardcoded sizes
           style={{
             whiteSpace: "nowrap",
+            fontSize: "clamp(2rem, 6vw, 4rem)", // Add viewport-based sizing
           }}
         >
           {renderWords()}{" "}
@@ -198,4 +201,3 @@ export const TypewriterEffectSmooth = ({
     </div>
   );
 };
-

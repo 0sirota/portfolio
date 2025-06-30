@@ -151,24 +151,21 @@ const Hero = () => {
             duration={0.4} 
             delay={1}
             containerClassName="block my-8"
-            textClassName="font-bold"
-            style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}
+
           />
           <TypewriterEffectSmooth 
             words={words2} 
             duration={1.1} 
             delay={2.5}
             containerClassName="block my-8"
-            textClassName="font-bold"
-            style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}
+
           />
           <TypewriterEffectSmooth 
             words={words3} 
             duration={1.1} 
             delay={5}
             containerClassName="block my-8"
-            textClassName="font-bold"
-            style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}
+
           />
           <p className="mt-4 text-lg text-zinc-400 italic opacity-80">
             *Best experienced on desktop
