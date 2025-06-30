@@ -167,6 +167,9 @@ const Hero = () => {
             containerClassName="block my-8"
             textClassName="text-6xl md:text-7xl lg:text-8xl font-bold"
           />
+          <p className="mt-4 text-lg text-zinc-400 italic opacity-80">
+            *Best experienced on desktop
+          </p>
         </div>
       </div>
     </section>
