@@ -72,16 +72,16 @@ const Contact = () => {
   };
 
   // Placeholder data for inputs
-  const placeholdersFN = ["John", "Jane", "Peter", "Steve", "Sherlock", "Albert", "Prometheus"];
-  const placeholdersLN = ["Doe", "Doe", "Pan", "Jobs", "Holmes", "Einstein", "Smith"];
+  const placeholdersFN = ["John", "Jane", "Peter", "Steve", "Sherlock", "Galileo", "Albert"];
+  const placeholdersLN = ["Doe", "Doe", "Pan", "Jobs", "Holmes", "Galilei", "Einstein"];
   const placeholdersEmail = [
     "john.doe@example.com",
     "jane.doe@gmail.com",
     "peter.pan@yahoo.com",
     "steve.jobs@icloud.com",
     "sherlock.holmes@outlook.com",
-    "einstein@protonmail.com",
-    "prometheus@hotmail.com"
+    "galileo@hotmail.com",
+    "einstein@protonmail.com"
   ];
 
   return (
