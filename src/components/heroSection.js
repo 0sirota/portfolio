@@ -140,14 +140,14 @@ const Hero = () => {
         <div 
           className="text-left"
           style={{ 
-            marginLeft: 'clamp(1.5rem, 15vw, 20rem)',
+            marginLeft: 'clamp(1.5rem, 5vw, 20rem)',
             marginTop: '-50vh',
             width: 'auto',
             display: 'block'
           }}
         >
           {/* First text line */}
-          <div style={{ fontSize: 'clamp(1.5rem, 4vw, 4rem)' }}>
+          <div style={{ fontSize: 'clamp(1.5rem, 1vw, 4rem)' }}>
             <TypewriterEffectSmooth 
               words={words1} 
               duration={0.4} 
@@ -158,7 +158,7 @@ const Hero = () => {
           </div>
           
           {/* Second text line */}
-          <div style={{ fontSize: 'clamp(1.5rem, 4vw, 4rem)' }}>
+          <div style={{ fontSize: 'clamp(1.5rem, 1vw, 4rem)' }}>
             <TypewriterEffectSmooth 
               words={words2} 
               duration={1.1} 
@@ -169,7 +169,7 @@ const Hero = () => {
           </div>
           
           {/* Third text line */}
-          <div style={{ fontSize: 'clamp(1.5rem, 4vw, 4rem)' }}>
+          <div style={{ fontSize: 'clamp(1.5rem, 1vw, 4rem)' }}>
             <TypewriterEffectSmooth 
               words={words3} 
               duration={1.1} 
