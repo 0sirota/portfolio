@@ -91,53 +91,57 @@ const Project = () => {
   };
 
   const features = [
-    {
-      title: "Aceternity UI",
-      description:
-        "Components from Aceternity UI, a modern React component library.",
-      icon: <Image src='/assets/logos/aceternityLogo.avif' alt="Aceternity Logo" width={30} height={30} />,
-    },
-    {
-      title: "Next.js",
-      description:
-        "Built with Next.js, a modern React framework that enables server-side rendering.",
-      icon: <Image src='/assets/logos/nextjsLogo.png' alt="Next.js Logo" width={30} height={30} />,
-    },
-    {
-      title: "Tailwind CSS",
-      description:
-        "Styled with Tailwind CSS, a utility-first CSS framework.",
-      icon: <Image src='/assets/logos/tailwindLogo.png' alt="Tailwind Logo" width={50} height={50} />,
-    },
-    {
-        title: "Node.js",
-        description:
-          "Built with Node.js, a JavaScript runtime built on Chrome's V8 JavaScript engine.",
-        icon: <Image src='/assets/logos/nodejsLogo.png' alt="Node.js Logo" width={30} height={30} />,
-      },
-    {
-      title: "Vercel",
-      description: "Hosted on Vercel, a cloud platform for static sites and Serverless Functions.",
-      icon: <Image src='/assets/logos/vercelLogo.png' alt="Vercel Logo" width={30} height={30} />,
-    },
-    {
-        title: "EmailJS",
-        description:
-          "Message submissions handled by EmailJS, a service that sends emails directly from the client.",
-        icon: <Image src='/assets/logos/emailjsLogo.png' alt="EmailJS Logo" width={30} height={30} />,
-      },
-    {
-      title: "Sketchfab",
-      description: "3D models from Sketchfab, a platform to publish, share, and discover 3D models.",
-      icon: <Image src='/assets/logos/sketchfabLogo.png' alt="Sketchfab Logo" width={30} height={30} />,
-    },
-    {
-      title: "UIverse.io",
-      description: "UI elements from UIverse, an open-source UI component platform.",
-      icon: <Image src='/assets/logos/uiverseLogo.png' alt="UIverse.io Logo" width={30} height={30} />,
-    },
+  {
+    title: "Next.js",
+    description:
+      "Powered by Next.js, a React framework that supports server-side rendering, routing, and optimised performance.",
+    icon: <Image src='/assets/logos/nextjsLogo.png' alt="Next.js Logo" width={30} height={30} />,
+  },
+  {
+    title: "Node.js",
+    description:
+      "Backed by Node.js, a fast and scalable JavaScript runtime used for server-side logic and tooling.",
+    icon: <Image src='/assets/logos/nodejsLogo.png' alt="Node.js Logo" width={30} height={30} />,
+  },
+  {
+    title: "Aceternity UI",
+    description:
+      "Primary UI built with Aceternity UI, a modern component library built on top of shadCN and Tailwind CSS.",
+    icon: <Image src='/assets/logos/aceternityLogo.avif' alt="Aceternity Logo" width={30} height={30} />,
+  },
+  {
+    title: "shadCN",
+    description:
+      "Built with shadCN components, a set of accessible and customisable UI primitives for modern React apps.",
+    icon: <Image src='/assets/logos/shadCNLogo.png' alt="shadCN Logo" width={30} height={30} />,
+  },
+  {
+    title: "Tailwind CSS",
+    description:
+      "Styled using Tailwind CSS, a utility-first framework for rapidly building custom user interfaces.",
+    icon: <Image src='/assets/logos/tailwindLogo.png' alt="Tailwind Logo" width={50} height={50} />,
+  },
+  {
+    title: "Three.js",
+    description:
+      "Interactive 3D elements rendered with Three.js, a powerful WebGL-based graphics library for the browser.",
+    icon: <Image src='/assets/logos/threeJSLogo.png' alt="Three.js Logo" width={30} height={30} />,
+  },
+  {
+    title: "Vercel",
+    description:
+      "Deployed on Vercel, a cloud platform optimised for frontend frameworks and serverless functions.",
+    icon: <Image src='/assets/logos/vercelLogo.png' alt="Vercel Logo" width={30} height={30} />,
+  },
+  {
+    title: "EmailJS",
+    description:
+      "Contact form powered by EmailJS, enabling email delivery directly from the client-side without a backend.",
+    icon: <Image src='/assets/logos/emailjsLogo.png' alt="EmailJS Logo" width={30} height={30} />,
+  },
 
   ];
+
 
 
   const cards = [
@@ -177,12 +181,121 @@ const Project = () => {
 
   ];
 
+  const cards2 = [
+    {
+      id: 4,
+      content: null,
+      className: "md:col-span-2",
+      thumbnail:
+        "/assets/project_media/drawbotics1.jpg",
+      height1: "60vh",
+      width1: "40vw",
+      height2: "30vh",
+      width2: "20vw",
+    },
+    {
+      id: 5,
+      content: null,
+      className: "col-span-2",
+      thumbnail:
+        "/assets/project_media/drawbotics2.jpg",
+        height1: "60vh",
+        width1: "40vw",
+        height2: "30vh",
+        width2: "20vw",
+    },
+  ];
+
+
+
+
+  const cards3 = [
+    {
+      id: 6,
+      content: null,
+      className: "md:col-span-2",
+      thumbnail:
+        "/assets/project_media/fieryDragons2.jpg",
+      height1: "80vh",
+      width1: "40vw",
+      height2: "40vh",
+      width2: "20vw",
+    },
+    {
+      id: 7,
+      content: null,
+      className: "col-span-2",
+      thumbnail:
+        "/assets/project_media/fieryDragons1.jpg",
+        height1: "80vh",
+        width1: "40vw",
+        height2: "40vh",
+        width2: "20vw",
+    },
+    {
+      id: 8,
+      content: null,
+      className: "col-span-2",
+      thumbnail:
+        "/assets/project_media/fieryDragons3.png",
+        height1: "80vh",
+        width1: "40vw",
+        height2: "40vh",
+        width2: "20vw",
+    },
+
+  ];
+
+
+    const cards4 = [
+    {
+      id: 9,
+      content: null,
+      className: "col-span-2",
+      thumbnail:
+        "/assets/project_media/snakeRL_training.png",
+        height1: "60vh",
+        width1: "40vw",
+        height2: "30vh",
+        width2: "20vw",
+    },
+  ];
 
 
 
   const data = [
     {
-      title: "Early 2025",
+      title: "2025",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Engineering Final Year Project, The Universal Book web application. Developed in a team of four. (IN PROGRESS)
+          </p>
+          <a
+            href="https://www.theuniversalbook.org/"
+            className="text-blue-500 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            The Universal Book ↗
+          </a>
+        </div>
+      ),
+    },
+    {
+      title: "2025",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Full year software engineering project, FindingNibbles mobile application. Developed in a team of fifteen. (IN PROGRESS)
+          </p>
+
+
+        </div>
+      ),
+    },
+    {
+      title: "2025",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -234,7 +347,7 @@ const Project = () => {
     },
     {
       
-      title: "Late 2024",
+      title: "2024",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal ">
@@ -251,35 +364,103 @@ const Project = () => {
       ),
     },
     {
-      title: "Early 2024",
+      title: "2024",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Fiery Dragons
+            Software Architecture. Fiery Dragons board game created as a desktop application using Java and JavaFx.
           </p>
+
+          <div className="h-screen w-full">
+              <LayoutGrid cards={cards3}  alternatingLayout={true}/> 
+            </div>
+        </div>
+      ),
+    },
+    {
+      title: "2022",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal ">
+            Data visualisation project (created with and published on Tableau) on the competitive history of freediving.
+          </p>
+
+          <a
+            href="https://public.tableau.com/app/profile/oliver2780/viz/FreeDiving/Freediving"
+            className="text-blue-500 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on Tableau Public ↗
+          </a>
+
+          <div className="overflow-hidden" style={{ transform: "scale(1)", transformOrigin: "top left", width: "100%", height: "2499px" }}>
+            <iframe
+              src="https://public.tableau.com/views/FreeDiving/Freediving?:showVizHome=no&:embed=true"
+              width="1624"
+              height="2499"
+              className="border-none"
+              allowFullScreen
+            ></iframe>
+          </div>
 
 
         </div>
       ),
     },
+    
     {
-      title: "Mid 2022",
+      title: "2022",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-            Drawbotics
+            As part of a winter vacation scholarship program with Monash SensiLab, I worked on the Drawbotics project, where I wrote a software library for the navigation of drawing robots, as well as a testing suite.
+
+          <a
+            href="https://github.com/Drawbotic/Drawbotic-Navigation-Arduino"
+            className="text-blue-500 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub Repository ↗
+          </a>
           </p>
- 
+          <div className="h-screen w-full">
+              <LayoutGrid cards={cards2}  alternatingLayout={true}/> 
+            </div>
         </div>
       ),
     },
     {
-      title: "Mid 2022",
+      title: "2022",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-            Snake AI
+            Snake AI. Developed an RL agent to play the game Snake using Python and Pygame and PyTorch. 
           </p>
+
+              <div className="w-full max-w-4xl mx-auto my-10">
+              <video
+                controls
+                className="w-full rounded-lg shadow-lg"
+              >
+                <source src="/assets/project_media/snakeRL_video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div className="h-screen w-full">
+              <LayoutGrid cards={cards4}  alternatingLayout={true}/> 
+            </div>
+
+            <a
+            href="https://github.com/DimitrisGahtidis/RL-Snake-Mini-Project"
+            className="text-blue-500 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub Repository ↗
+          </a>
 
         </div>
       ),
