@@ -55,7 +55,7 @@ export default function App() {
         <Header />
         {/* <ConstructionSection /> */}
         <HeroSection />
-        <AboutSection />
+        {/* <AboutSection /> */}
         <ProjectsSection />
         {/* <ResumeSection /> */}
         {/* <MacbookScrollDemo /> */}
