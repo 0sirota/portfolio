@@ -16,21 +16,21 @@ const Hero = () => {
   const words1 = [
     {
       text: "Hi!👋",
-      className: "text-blue-500 dark:text-blue-500",
+      className: "",
     },
   ];
 
   const words2 = [
     {
       text: "My name is Oliver Sirota.",
-      className: "text-blue-500 dark:text-blue-500",
+      className: "",
     },
   ];
 
   const words3 = [
     {
       text: "Welcome to my portfolio!",
-      className: "text-blue-500 dark:text-blue-500",
+      className: "",
     },
   ];
 
