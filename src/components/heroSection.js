@@ -135,48 +135,52 @@ const Hero = () => {
         }}
       ></div>
 
-      {/* Hero Text Overlay - Positioned with padding from left */}
+      {/* Hero Text Overlay - Responsive positioning and sizing */}
       <div className="absolute inset-0 flex flex-col justify-center z-10 pointer-events-none">
         <div 
           className="text-left"
           style={{ 
-            marginLeft: '15vw',
-            marginTop: '-35vh',
+            marginLeft: 'clamp(1.5rem, 15vw, 20rem)',
+            marginTop: '-50vh',
             width: 'auto',
             display: 'block'
           }}
         >
-          <div style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
+          {/* First text line */}
+          <div style={{ fontSize: 'clamp(1.5rem, 4vw, 4rem)' }}>
             <TypewriterEffectSmooth 
               words={words1} 
               duration={0.4} 
               delay={1}
-              containerClassName="block my-8"
+              containerClassName="block my-4 sm:my-6 md:my-8"
               textClassName="!text-[1em] font-bold"
             />
           </div>
           
-          <div style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
+          {/* Second text line */}
+          <div style={{ fontSize: 'clamp(1.5rem, 4vw, 4rem)' }}>
             <TypewriterEffectSmooth 
               words={words2} 
               duration={1.1} 
               delay={2.5}
-              containerClassName="block my-8"
+              containerClassName="block my-4 sm:my-6 md:my-8"
               textClassName="!text-[1em] font-bold"
             />
           </div>
           
-          <div style={{ fontSize: 'clamp(2rem, 6vw, 4rem)' }}>
+          {/* Third text line */}
+          <div style={{ fontSize: 'clamp(1.5rem, 4vw, 4rem)' }}>
             <TypewriterEffectSmooth 
               words={words3} 
               duration={1.1} 
               delay={5}
-              containerClassName="block my-8"
+              containerClassName="block my-4 sm:my-6 md:my-8"
               textClassName="!text-[1em] font-bold"
             />
           </div>
           
-          <p className="mt-4 text-lg text-zinc-400 italic opacity-80">
+          {/* Responsive subtitle */}
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-zinc-400 italic opacity-80">
             *Best experienced on desktop
           </p>
         </div>
