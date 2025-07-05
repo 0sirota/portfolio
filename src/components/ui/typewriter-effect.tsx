@@ -173,7 +173,6 @@ export const TypewriterEffectSmooth = ({
           className={cn("font-bold", textClassName)} // Use textClassName prop instead of hardcoded sizes
           style={{
             whiteSpace: "nowrap",
-            fontSize: "clamp(2rem, 6vw, 4rem)", // Add viewport-based sizing
           }}
         >
           {renderWords()}{" "}
