@@ -297,22 +297,22 @@ const Project = () => {
       title: "2022",
       content: (
         <div>
-          <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100 ml-44">
+          <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100 ml-44 px-2">
             Competitive Freediving Data Visualization
           </h3>
-          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6 ml-44">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6 ml-44 px-2">
             Created a comprehensive data visualization project analysing the competitive history and evolution of freediving as a sport. Developed as part of a university data analytics course, this project demonstrates proficiency in data collection, cleaning, analysis, and visualization using Tableau. The interactive dashboard presents historical trends, record progressions, athlete performance comparisons, and geographical distribution of competitive freediving achievements. The visualization incorporates multiple chart types, filtering capabilities, and dynamic interactions to provide meaningful insights into the sport's development over time.
           </p>
           <a
             href="https://public.tableau.com/app/profile/oliver2780/viz/FreeDiving/Freediving"
-            className="text-blue-500 hover:underline text-sm md:text-base font-medium mb-6 inline-block ml-44"
+            className="text-blue-500 hover:underline text-sm md:text-base font-medium mb-6 inline-block ml-44 px-2"
             target="_blank"
             rel="noopener noreferrer"
           >
             View Interactive Dashboard on Tableau Public ↗
           </a>
           <div
-            className="overflow-hidden rounded-lg shadow-lg  ml-44"
+            className="overflow-hidden rounded-lg shadow-lg  ml-44 px-2"
             style={{ transform: "scale(0.9)", transformOrigin: "top left", width: "110%", height: "2499px" }}
           >
             <iframe
@@ -383,7 +383,7 @@ const Project = () => {
   ];
 
   return (
-    <div id="projects" className="w-full">
+    <div id="projects" className="w-full  py-20 dark:bg-zinc-950">
       <Timeline data={data} />
     </div>
   );
