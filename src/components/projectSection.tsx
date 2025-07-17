@@ -303,35 +303,69 @@ const Project = () => {
       title: "2022",
       content: (
         <div>
-          <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100 ml-44 px-2">
+          <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100 ">
             Competitive Freediving Data Visualisation
           </h3>
-          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6 ml-44 px-2">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6 ">
             Created a comprehensive data‑visualisation project analysing the competitive history and evolution of freediving as a sport. Developed as part of a university visualisation unit, this project demonstrates proficiency in data collection, cleansing, analysis, and visualisation using Tableau. The interactive dashboard presents historical trends, record progressions, athlete‑performance comparisons, and geographical distribution of competitive freediving achievements. The visualisation incorporates multiple chart types, filtering capabilities, and dynamic interactions to provide meaningful insights into the sport's development over time.
           </p>
           <a
             href="https://public.tableau.com/app/profile/oliver2780/viz/FreeDiving/Freediving"
-            className="text-blue-500 hover:underline text-sm md:text-base font-medium mb-6 inline-block ml-44 px-2"
+            className="text-blue-500 hover:underline text-sm md:text-base font-medium mb-6 inline-block "
             target="_blank"
             rel="noopener noreferrer"
           >
             View Interactive Dashboard on Tableau Public ↗
           </a>
-          <div
-            className="overflow-hidden rounded-lg shadow-lg  ml-44 px-2"
-            style={{ transform: "scale(0.9)", transformOrigin: "top left", width: "110%", height: "2499px" }}
-          >
-            <iframe
-              src="https://public.tableau.com/views/FreeDiving/Freediving?:showVizHome=no&:embed=true"
-              width="1624"
-              height="2499"
-              className="border-none"
-              allowFullScreen
-            />
+          
+          {/* Mobile preview */}
+          <div className="block md:hidden">
+            <div className="relative w-full bg-gray-100 dark:bg-gray-800 rounded-lg p-8 text-center">
+              <div className="mb-4">
+                <svg className="w-16 h-16 mx-auto text-gray-400 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h4 className="text-lg font-semibold mb-2 text-neutral-800 dark:text-neutral-100">
+                Interactive Dashboard
+              </h4>
+              <p className="text-neutral-600 dark:text-neutral-400 mb-4 text-sm">
+                📊 Full interactive dashboard available on desktop or via the link above
+              </p>
+              <a
+                href="https://public.tableau.com/app/profile/oliver2780/viz/FreeDiving/Freediving"
+                className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors font-medium"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Dashboard
+              </a>
+            </div>
+          </div>
+          
+          {/* Desktop iframe - your original code */}
+          <div className="hidden md:block">
+            <div
+              className="overflow-hidden rounded-lg shadow-lg md:scale-[0.7] lg:scale-[0.9]"
+              style={{ 
+                transformOrigin: "top left", 
+                width: "110%", 
+                height: "2499px" 
+              }}
+            >
+              <iframe
+                src="https://public.tableau.com/views/FreeDiving/Freediving?:showVizHome=no&:embed=true"
+                width="1624"
+                height="2499"
+                className="border-none"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       ),
-    },
+    }
+    ,
     {
       title: "2022",
       content: (
