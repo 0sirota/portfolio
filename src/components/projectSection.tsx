@@ -306,7 +306,7 @@ const Project = () => {
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100 ">
             Competitive Freediving Data Visualisation
           </h3>
-          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6 ">
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6 mr-20 ">
             Created a comprehensive data‑visualisation project analysing the competitive history and evolution of freediving as a sport. Developed as part of a university data visualisation unit, this project demonstrates proficiency in data collection, cleansing, analysis, and visualisation using Tableau. The interactive dashboard presents historical trends, record progressions, athlete‑performance comparisons, and geographical distribution of competitive freediving achievements. The visualisation incorporates multiple chart types, filtering capabilities, and dynamic interactions to provide meaningful insights into the sport's development over time.
           </p>
           <a
@@ -348,8 +348,8 @@ const Project = () => {
               className="overflow-hidden rounded-lg shadow-lg md:scale-[0.7] min-[1800px]:scale-[0.9]"
               style={{ 
                 transformOrigin: "top left", 
-                width: "110%", 
-                height: "2499px" 
+                width: "100%", 
+                height: "2050px" 
               }}
             >
               <iframe
