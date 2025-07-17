@@ -11,6 +11,8 @@ const Hero = () => {
   const containerRef = useRef(null); 
   const rendererRef = useRef(null);  // Ref for the renderer
   const mixerRef = useRef(null);  // Ref for the animation mixer
+  const cameraRef = useRef(null);  // Ref for the camera
+  const modelRef = useRef(null);  // Ref for the 3D model
   const [isHidden, setIsHidden] = useState(false);
 
   const words1 = [
@@ -34,6 +36,28 @@ const Hero = () => {
     },
   ];
 
+  // Function to update positioning based on screen size
+  const updatePositioning = () => {
+    if (!cameraRef.current || !modelRef.current) return;
+
+    const isMobile = window.innerWidth <= 768;
+    const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+
+    if (isMobile) {
+      // Mobile: Move camera and model more to the left
+      cameraRef.current.position.set(-1, 1, 5);
+      modelRef.current.position.set(-1, 0, 0);
+    } else if (isTablet) {
+      // Tablet: Slight adjustment
+      cameraRef.current.position.set(-1.5, 1, 5);
+      modelRef.current.position.set(-0.5, 0, 0);
+    } else {
+      // Desktop: Original positioning
+      cameraRef.current.position.set(-2, 1, 5);
+      modelRef.current.position.set(0, 0, 0);
+    }
+  };
+
   useEffect(() => {
     // Only initialize the scene and renderer if they haven't been created yet
     if (rendererRef.current) return;  // Skip if already initialized
@@ -51,8 +75,9 @@ const Hero = () => {
 
     containerRef.current.appendChild(renderer.domElement);
 
-    // Save the renderer to the ref so it persists across renders
+    // Save the renderer and camera to refs
     rendererRef.current = renderer;
+    cameraRef.current = camera;
 
     const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
     scene.add(ambientLight);
@@ -73,8 +98,10 @@ const Hero = () => {
         const scale = 1.5;
         gltf.scene.scale.set(scale, scale, scale);
         gltf.scene.rotation.set(0, -0.5, 0);
-        // gltf.scene.position.set(0, 0, 0); 
         scene.add(gltf.scene);
+
+        // Save the model to ref for positioning updates
+        modelRef.current = gltf.scene;
 
         mixer = new THREE.AnimationMixer(gltf.scene);
         gltf.animations.forEach((clip) => {
@@ -86,6 +113,9 @@ const Hero = () => {
 
         // Save the mixer to the ref for updates
         mixerRef.current = mixer;
+
+        // Apply initial positioning
+        updatePositioning();
       },
       undefined,
       (error) => {
@@ -104,6 +134,9 @@ const Hero = () => {
       camera.aspect = containerRef.current.clientWidth / containerRef.current.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
+      
+      // Update positioning on resize
+      updatePositioning();
     };
     window.addEventListener("resize", onWindowResize);
 
