@@ -346,7 +346,7 @@ const Project = () => {
           {/* Desktop iframe - your original code */}
           <div className="hidden md:block">
             <div
-              className="overflow-hidden rounded-lg shadow-lg md:scale-[0.7] lg:scale-[0.9]"
+              className="overflow-hidden rounded-lg shadow-lg md:scale-[0.4] lg:scale-[0.9]"
               style={{ 
                 transformOrigin: "top left", 
                 width: "110%", 
