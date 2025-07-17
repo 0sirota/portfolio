@@ -45,8 +45,8 @@ const Hero = () => {
 
     if (isMobile) {
       // Mobile: Move camera and model more to the left
-      cameraRef.current.position.set(-1, 1, 5);
-      modelRef.current.position.set(-1, 0, 0);
+      cameraRef.current.position.set(-1.25, 1, 5);
+      modelRef.current.position.set(-0.75, 0, 0);
     } else if (isTablet) {
       // Tablet: Slight adjustment
       cameraRef.current.position.set(-1.5, 1, 5);
