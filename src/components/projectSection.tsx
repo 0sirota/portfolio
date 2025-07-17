@@ -348,7 +348,7 @@ const Project = () => {
               className="overflow-hidden rounded-lg shadow-lg md:scale-[0.7] min-[1800px]:scale-[0.9]"
               style={{ 
                 transformOrigin: "top left", 
-                width: "110%", 
+                width: "100%", 
                 height: "2499px" 
               }}
             >
