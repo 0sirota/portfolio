@@ -345,7 +345,7 @@ const Project = () => {
           
           <div className="hidden md:block">
             <div
-              className="overflow-hidden rounded-lg shadow-lg md:scale-[0.7] xl:scale-[0.9]"
+              className="overflow-hidden rounded-lg shadow-lg md:scale-[0.7] min-[1800px]:scale-[0.9]"
               style={{ 
                 transformOrigin: "top left", 
                 width: "110%", 
