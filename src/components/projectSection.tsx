@@ -306,8 +306,8 @@ const Project = () => {
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100 ">
             Competitive Freediving Data Visualisation
           </h3>
-          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6 mr-2 ">
-            Created a comprehensive data‑visualisation project analysing the competitive history and evolution of freediving as a sport. Developed as part of a university visualisation unit, this project demonstrates proficiency in data collection, cleansing, analysis, and visualisation using Tableau. The interactive dashboard presents historical trends, record progressions, athlete‑performance comparisons, and geographical distribution of competitive freediving achievements. The visualisation incorporates multiple chart types, filtering capabilities, and dynamic interactions to provide meaningful insights into the sport's development over time.
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6 ">
+            Created a comprehensive data‑visualisation project analysing the competitive history and evolution of freediving as a sport. Developed as part of a university data visualisation unit, this project demonstrates proficiency in data collection, cleansing, analysis, and visualisation using Tableau. The interactive dashboard presents historical trends, record progressions, athlete‑performance comparisons, and geographical distribution of competitive freediving achievements. The visualisation incorporates multiple chart types, filtering capabilities, and dynamic interactions to provide meaningful insights into the sport's development over time.
           </p>
           <a
             href="https://public.tableau.com/app/profile/oliver2780/viz/FreeDiving/Freediving"
@@ -354,13 +354,14 @@ const Project = () => {
             >
               <iframe
                 src="https://public.tableau.com/views/FreeDiving/Freediving?:showVizHome=no&:embed=true"
-                width="1624"
-                height="2499"
+                width="1300" // 1624
+                height="2050" // 2499
                 className="border-none"
                 allowFullScreen
               />
             </div>
           </div>
+          
         </div>
       ),
     }
