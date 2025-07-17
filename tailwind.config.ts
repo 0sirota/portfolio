@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 import svgToDataUri from "mini-svg-data-uri";
-import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
+// import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
 
 /** @type {import('tailwindcss').Config} */
 const config: Config = {
@@ -16,6 +16,9 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      screens: {
+        "3xl": "2000px",
+      },
       animation: {
         shimmer: "shimmer 2s linear infinite",
         move: "move 5s linear infinite",
