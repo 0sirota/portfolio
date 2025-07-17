@@ -106,30 +106,18 @@ const Project = () => {
       content: null,
       className: "md:col-span-2",
       thumbnail: "/assets/project_media/scrumscape_login.png",
-      height1: "35vh",
-      width1: "50vw",
-      height2: "18vh",
-      width2: "25vw",
     },
     {
       id: 2,
       content: null,
       className: "col-span-2",
       thumbnail: "/assets/project_media/scrumscape_sprints.png",
-      height1: "35vh",
-      width1: "50vw",
-      height2: "18vh",
-      width2: "25vw",
     },
     {
       id: 3,
       content: null,
       className: "col-span-2",
       thumbnail: "/assets/project_media/scrumscape_update_task.png",
-      height1: "35vh",
-      width1: "50vw",
-      height2: "18vh",
-      width2: "25vw",
     },
   ];
 
@@ -140,20 +128,12 @@ const Project = () => {
       content: null,
       className: "md:col-span-2",
       thumbnail: "/assets/project_media/drawbotics1.jpg",
-      height1: "50vh",
-      width1: "45vw",
-      height2: "25vh",
-      width2: "22vw",
     },
     {
       id: 5,
       content: null,
       className: "col-span-2",
       thumbnail: "/assets/project_media/drawbotics2.jpg",
-      height1: "50vh",
-      width1: "45vw",
-      height2: "25vh",
-      width2: "22vw",
     },
   ];
 
@@ -164,30 +144,18 @@ const Project = () => {
       content: null,
       className: "md:col-span-2",
       thumbnail: "/assets/project_media/fieryDragons2.jpg",
-      height1: "60vh",
-      width1: "45vw",
-      height2: "30vh",
-      width2: "22vw",
     },
     {
       id: 7,
       content: null,
       className: "col-span-2",
       thumbnail: "/assets/project_media/fieryDragons1.jpg",
-      height1: "60vh",
-      width1: "45vw",
-      height2: "30vh",
-      width2: "22vw",
     },
     {
       id: 8,
       content: null,
       className: "col-span-2",
       thumbnail: "/assets/project_media/fieryDragons3.png",
-      height1: "60vh",
-      width1: "45vw",
-      height2: "30vh",
-      width2: "22vw",
     },
   ];
 
@@ -198,10 +166,6 @@ const Project = () => {
       content: null,
       className: "col-span-2",
       thumbnail: "/assets/project_media/snakeRL_training.png",
-      height1: "40vh",
-      width1: "50vw",
-      height2: "20vh",
-      width2: "25vw",
     },
   ];
 
@@ -277,7 +241,7 @@ const Project = () => {
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             Developed ScrumScape, a comprehensive project‑management web application designed to streamline agile‑development workflows. Created as part of a university software‑engineering course, working collaboratively with a team of six developers following strict client specifications and requirements. The platform features sprint planning, task management, team‑collaboration tools, and progress‑tracking capabilities. Built using a robust tech stack including <strong>PHP</strong> (managed through <strong>phpMyAdmin</strong>) and a <strong>MySQL</strong> database on the server side, alongside <strong>JavaScript</strong>, <strong>HTML</strong>, <strong>CSS</strong>, and the <strong>Bootstrap</strong> framework for the responsive front‑end.
           </p>
-          <div className="h-screen w-full mb-6">
+          <div className="w-full mb-6">
             <LayoutGrid cards={scrumScapeCards} alternatingLayout={true} />
           </div>
         </div>
@@ -293,7 +257,7 @@ const Project = () => {
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             Developed a fully functional desktop implementation of the Fiery Dragons board game as part of a university Software Architecture unit. This project demonstrates advanced object‑oriented programming principles, design patterns, and software‑architecture best practices. Built entirely in <strong>Java</strong>, utilising the <strong>JavaFX</strong> library for the graphical user interface, the application features intuitive gameplay mechanics, animated game elements, and comprehensive game‑state management. The project showcases expertise in GUI development, event‑driven programming, and creating engaging user experiences through thoughtful interface design and smooth animations.
           </p>
-          <div className="h-screen w-full mb-6">
+          <div className="w-full mb-6">
             <LayoutGrid cards={fieryDragonsCards} alternatingLayout={true} />
           </div>
         </div>
@@ -367,8 +331,7 @@ const Project = () => {
           </div>
         </div>
       ),
-    }
-    ,
+    },
     {
       title: "2022",
       content: (
@@ -379,7 +342,7 @@ const Project = () => {
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             Contributed to the innovative Drawbotics project during a prestigious university winter‑vacation scholarship with Monash SensiLab. Developed a comprehensive software library for autonomous navigation of drawing robots, implementing advanced path‑finding algorithms and motion‑control systems, together with a robust testing suite to ensure reliability and accuracy. The core navigation library was written in <strong>C++</strong> for <strong>Arduino</strong>, with supplementary utilities developed in <strong>Python</strong> using <strong>CircuitPython</strong>, and extensive sensor‑integration and real‑time‑system control work.
           </p>
-          <div className="h-screen w-full mb-4">
+          <div className="w-full mb-4">
             <LayoutGrid cards={drawboticsCards} alternatingLayout={true} />
           </div>
           <a
@@ -409,7 +372,7 @@ const Project = () => {
               Your browser does not support the video tag.
             </video>
           </div>
-          <div className="h-screen w-full mb-2">
+          <div className="w-full mb-2">
             <LayoutGrid cards={snakeRLCards} alternatingLayout={true} />
           </div>
           <a
@@ -426,7 +389,7 @@ const Project = () => {
   ];
 
   return (
-    <div id="projects" className="w-full  py-20 dark:bg-zinc-950">
+    <div id="projects" className="w-full py-20 dark:bg-zinc-950">
       <Timeline data={data} />
     </div>
   );
