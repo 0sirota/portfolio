@@ -319,7 +319,7 @@ const Project = () => {
           </a>
 
           {/* Message shown for screen widths < 3xl (less than ~1536px) */}
-          <div className="block 2xl:hidden">
+          <div className="block 3xl:hidden">
             <div className="relative w-full bg-gray-100 dark:bg-gray-800 rounded-lg p-8 text-center">
               <div className="mb-4">
                 <svg
@@ -354,7 +354,7 @@ const Project = () => {
           </div>
 
           {/* Full iframe shown only on 3xl and larger screens */}
-          <div className="hidden 2xl:block w-full overflow-hidden">
+          <div className="hidden 3xl:block w-full overflow-hidden">
             <div className="transform scale-[0.9] origin-top-left w-[1624px] h-[2499px]">
               <iframe
                 src="https://public.tableau.com/views/FreeDiving/Freediving?:showVizHome=no&:embed=true"

@@ -8,6 +8,9 @@ module.exports = {
   darkMode: "class", // Class-based dark mode
   theme: {
     extend: {
+      screens: {
+        "3xl": "2000px",
+      },
       animation: {
         aurora: "aurora 60s linear infinite", // Added aurora animation
         spotlight: "spotlight 2s ease .75s 1 forwards", // Added spotlight animation
