@@ -175,7 +175,7 @@ const Project = () => {
       content: (
         <div>
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
-            The Universal Book Web App – Engineering Final Year Project
+            The Universal Book – Engineering Final Year Project
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             Currently developing a web application as my Engineering Final Year Project, leading a team of six students. 
@@ -202,7 +202,7 @@ const Project = () => {
       content: (
         <div>
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
-            FindingNibbles Mobile App - Full Year Software Engineering Team Project
+            FindingNibbles - Full Year Software Engineering Team Project
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             Currently developing a mobile application in a team of fifteen students. 
