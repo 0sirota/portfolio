@@ -175,10 +175,13 @@ const Project = () => {
       content: (
         <div>
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
-            The Universal Book – Engineering Capstone Project
+            The Universal Book Web App – Engineering Final Year Project
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Currently developing an innovative web application as my final‑year engineering capstone project, working collaboratively with a team of four students. The Universal Book aims to create a comprehensive digital platform that aggregates and organises literary content from various sources, providing users with a unified interface for discovering, accessing, and managing books across multiple formats and languages. This project demonstrates advanced software‑engineering principles, including agile development methodologies, user‑centred design, and scalable system architecture.
+            Currently developing a web application as my Engineering Final Year Project, leading a team of six students. 
+            The Universal Book is a platform for authors to write books collaboratively and publish them independent of traditional publishers as well as for readers to discover and read these books.
+            The application includes features such as live collaborative editing and an AI assistant chatbot. 
+            
           </p>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             The application is coded in <strong>React</strong>, containerised with <strong>Docker</strong>, utilises <strong>Prisma</strong> as an ORM for a <strong>PostgreSQL</strong> database, and is hosted on the <strong>Nectar Research Cloud</strong>.
@@ -199,10 +202,12 @@ const Project = () => {
       content: (
         <div>
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
-            FindingNibbles – Large‑Scale Mobile Application Development
+            FindingNibbles Mobile App - Full Year Software Engineering Team Project
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Currently contributing to the development of FindingNibbles, an ambitious mobile‑application project undertaken as part of a comprehensive software‑engineering course. Working within a large development team of fifteen students, this project emphasises collaborative software‑development practices, version‑control management, and agile project methodologies. The application focuses on food discovery and recommendation services, incorporating modern mobile‑development frameworks and real‑time data synchronisation. This experience provides valuable insights into large‑scale software development, team coordination, and professional practices widely used in industry.
+            Currently developing a mobile application in a team of fifteen students. 
+            FindingNibbles helps users decide on restaurants to eat at based on user preferences and dietary requirements through analysing, sorting, and categorising nearby restaurants.
+            The application includes features such as AI generated recipes. 
           </p>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             The solution pairs a <strong>Flutter</strong> (<strong>Dart</strong>) front‑end with a <strong>NestJS</strong> back‑end; both services run in <strong>Docker</strong> containers, using <strong>Prisma</strong> to interface with a shared <strong>PostgreSQL</strong> database.
@@ -218,7 +223,7 @@ const Project = () => {
             Personal Portfolio Website
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Designed and developed this comprehensive portfolio website to showcase my technical skills, projects, and professional experience. The site features a modern, responsive design with interactive elements, smooth animations, and optimised performance. Built using cutting‑edge web technologies, the website demonstrates proficiency in full‑stack development, UI/UX design principles, and modern deployment practices.
+            Designed and developed this comprehensive portfolio website to showcase my projects, experiences, and skills. The site features a modern, responsive design with interactive elements, smooth animations, and optimised performance. Built using cutting‑edge web technologies, the website demonstrates proficiency in full‑stack development, UI/UX design principles, and modern deployment practices.
           </p>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-8">
             <strong>Technology Stack:</strong>
@@ -236,10 +241,13 @@ const Project = () => {
       content: (
         <div>
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
-            ScrumScape – Agile Project Management Platform
+            ScrumScape Web App – Agile Project Management Platform
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Developed ScrumScape, a comprehensive project‑management web application designed to streamline agile‑development workflows. Created as part of a university software‑engineering course, working collaboratively with a team of six developers following strict client specifications and requirements. The platform features sprint planning, task management, team‑collaboration tools, and progress‑tracking capabilities. Built using a robust tech stack including <strong>PHP</strong> (managed through <strong>phpMyAdmin</strong>) and a <strong>MySQL</strong> database on the server side, alongside <strong>JavaScript</strong>, <strong>HTML</strong>, <strong>CSS</strong>, and the <strong>Bootstrap</strong> framework for the responsive front‑end.
+            Developed ScrumScape, a comprehensive project management web application designed to streamline agilev development workflows. 
+            Created as part of a university Software Engineering unit, working collaboratively with a team of six developers following strict client specifications and requirements.
+             The platform features sprint planning, task management, team‑collaboration tools, and progress‑tracking capabilities. 
+             Built using a robust tech stack including <strong>PHP</strong> (managed through <strong>phpMyAdmin</strong>) and a <strong>MySQL</strong> database on the server side, alongside <strong>JavaScript</strong>, <strong>HTML</strong>, <strong>CSS</strong>, and the <strong>Bootstrap</strong> framework for the responsive front‑end.
           </p>
           <div className="w-full mb-6">
             <LayoutGrid cards={scrumScapeCards} alternatingLayout={true} />
@@ -255,7 +263,11 @@ const Project = () => {
             Fiery Dragons – Desktop Game Application
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Developed a fully functional desktop implementation of the Fiery Dragons board game as part of a university Software Architecture unit. This project demonstrates advanced object‑oriented programming principles, design patterns, and software‑architecture best practices. Built entirely in <strong>Java</strong>, utilising the <strong>JavaFX</strong> library for the graphical user interface, the application features intuitive gameplay mechanics, animated game elements, and comprehensive game‑state management. The project showcases expertise in GUI development, event‑driven programming, and creating engaging user experiences through thoughtful interface design and smooth animations.
+            Developed a fully functional desktop implementation of the Fiery Dragons board game as part of a university Software Architecture unit. 
+            This project demonstrates advanced object‑oriented programming principles, design patterns, and software‑architecture best practices. 
+            Built entirely in <strong>Java</strong>, utilising the <strong>JavaFX</strong> library for the graphical user interface, 
+            the application features intuitive gameplay mechanics and comprehensive game‑state management. 
+            The project showcases expertise in GUI development, event‑driven programming, and creating engaging user experiences through thoughtful interface design.
           </p>
           <div className="w-full mb-6">
             <LayoutGrid cards={fieryDragonsCards} alternatingLayout={true} />
@@ -268,10 +280,13 @@ const Project = () => {
       content: (
         <div>
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100 ">
-            Competitive Freediving Data Visualisation
+            History of Competitive Freediving - Data Visualisation
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Created a comprehensive data‑visualisation project analysing the competitive history and evolution of freediving as a sport. Developed as part of a university data visualisation unit, this project demonstrates proficiency in data collection, cleansing, analysis, and visualisation using Tableau. The interactive dashboard presents historical trends, record progressions, athlete‑performance comparisons, and geographical distribution of competitive freediving achievements. The visualisation incorporates multiple chart types, filtering capabilities, and dynamic interactions to provide meaningful insights into the sport's development over time.
+            Created a comprehensive data‑visualisation project analysing the competitive history and evolution of freediving as a sport. 
+            Developed as part of a university Data Visualisation unit, this project demonstrates proficiency in data collection, cleansing, analysis, and visualisation using Tableau. 
+            The interactive dashboard presents historical trends, record progressions, athlete‑performance comparisons, and geographical distribution of competitive freediving achievements. 
+            The visualisation incorporates multiple chart types, filtering capabilities, and dynamic interactions to provide meaningful insights into the sport's development over time.
           </p>
           <a
             href="https://public.tableau.com/app/profile/oliver2780/viz/FreeDiving/Freediving"
@@ -337,10 +352,11 @@ const Project = () => {
       content: (
         <div>
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
-            Drawbotics – Robotic Navigation System
+            Drawbotics – Winter Vacation Scholarship Placement at Monash SensiLab
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Contributed to the innovative Drawbotics project during a prestigious university winter‑vacation scholarship with Monash SensiLab. Developed a comprehensive software library for autonomous navigation of drawing robots, implementing advanced path‑finding algorithms and motion‑control systems, together with a robust testing suite to ensure reliability and accuracy. The core navigation library was written in <strong>C++</strong> for <strong>Arduino</strong>, with supplementary utilities developed in <strong>Python</strong> using <strong>CircuitPython</strong>, and extensive sensor‑integration and real‑time‑system control work.
+            As part of a 4-week placement at Monash SensiLab, I developed a Software Library for the navigation of Drawing Robots, facilitating the concatenation of simple commands to generate complex paths.
+            The core navigation library was written in <strong>C++</strong> for <strong>Arduino</strong>, with supplementary utilities developed in <strong>Python</strong> using <strong>CircuitPython</strong>.
           </p>
           <div className="w-full mb-4">
             <LayoutGrid cards={drawboticsCards} alternatingLayout={true} />
@@ -361,10 +377,12 @@ const Project = () => {
       content: (
         <div>
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
-            Snake AI – Reinforcement Learning Agent
+            Snake AI - Monash DeepNeuron
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Developed an intelligent reinforcement‑learning agent capable of playing the classic Snake game with superhuman performance. Created as part of a Monash Deep Neuron student team project, working collaboratively in a team of four. The project utilised <strong>Python</strong> with <strong>Pygame</strong> for game‑environment simulation and <strong>PyTorch</strong> for implementing deep Q‑learning algorithms. The AI agent learns optimal gameplay strategies through trial and error, demonstrating advanced understanding of neural networks, reinforcement‑learning principles, and game‑AI development.
+            Developed an intelligent Reinforcement-Learning agent capable of playing the classic Snake game with superhuman performance. 
+            Created as part of a Monash DeepNeuron student team project, working collaboratively in a team of four. 
+            The project utilised <strong>Python</strong> with <strong>Pygame</strong> for game‑environment simulation and <strong>PyTorch</strong> for implementing Reinforcement-Learning with Neural Networks. 
           </p>
           <div className="w-full max-w-4xl mx-auto my-8">
             <video controls className="w-full rounded-lg shadow-lg">
