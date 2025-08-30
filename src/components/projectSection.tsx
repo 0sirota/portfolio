@@ -187,7 +187,7 @@ const Project = () => {
             The application is coded in <strong>React</strong>, containerised with <strong>Docker</strong>, utilises <strong>Prisma</strong> as an ORM for a <strong>PostgreSQL</strong> database, and is hosted on the <strong>Nectar Research Cloud</strong>.
           </p>
           <a
-            href="https://www.theuniversalbook.org/"
+            href="https://dev.universal-book.com/"
             className="text-blue-500 hover:underline text-sm md:text-base font-medium"
             target="_blank"
             rel="noopener noreferrer"

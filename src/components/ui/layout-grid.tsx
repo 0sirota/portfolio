@@ -70,8 +70,8 @@ export const LayoutGrid = ({
               selected?.id === card.id
                 ? "fixed inset-0 m-auto max-w-5xl max-h-[85vh] z-50 flex justify-center items-center rounded-lg"
                 : alternatingLayout
-                  ? "bg-white rounded-xl h-64 w-full max-w-md"
-                  : "bg-white rounded-xl h-80 w-full max-w-lg",
+                  ? "bg-white rounded-xl aspect-[4/3] w-full max-w-md"
+                  : "bg-white rounded-xl aspect-[4/3] w-full max-w-lg",
               alternatingLayout && i % 2 === 0 ? "mr-auto" : alternatingLayout ? "ml-auto" : "mx-auto"
             )}
             layoutId={`card-${card.id}`}
