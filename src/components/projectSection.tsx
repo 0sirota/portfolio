@@ -99,6 +99,16 @@ const Project = () => {
     },
   ];
 
+  const makerlabCards = [
+    {
+      id: 1,
+      content: null,
+      className: "md:col-span-2",
+      thumbnail: "/assets/project_media/clock_lamp.jpg",
+    },
+
+  ];
+
   // ScrumScape project images
   const scrumScapeCards = [
     {
@@ -212,6 +222,25 @@ const Project = () => {
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             The solution pairs a <strong>Flutter</strong> (<strong>Dart</strong>) front‑end with a <strong>NestJS</strong> back‑end; both services run in <strong>Docker</strong> containers, using <strong>Prisma</strong> to interface with a shared <strong>PostgreSQL</strong> database.
           </p>
+        </div>
+      ),
+    },
+        {
+      title: "2025",
+      content: (
+        <div>
+          <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
+            MakerLab 
+          </h3>
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
+             Designed and built a range of artefacts for the Monash MakerLab unit, showcasing my ability to turn ideas into functional prototypes. 
+             These projects highlight my creativity, technical problem-solving, and practical engineering skills. 
+             Examples include a real-time updating clock lamp and an AI-powered sports tracking camera.
+          </p>
+            <div className="w-full mb-6">
+            <LayoutGrid cards={makerlabCards} alternatingLayout={true} />
+          </div>
+
         </div>
       ),
     },
