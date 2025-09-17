@@ -133,7 +133,7 @@ const Header = () => {
 
           {/* Mobile Navigation: Burger Menu */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-50 relative cursor-pointer"
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-100 relative cursor-pointer"
             onClick={toggleSidebar}
             onTouchEnd={(e) => {
               e.preventDefault();
