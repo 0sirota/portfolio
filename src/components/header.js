@@ -102,7 +102,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`bg-gray-50 dark:bg-zinc-900 transition-[height] duration-300 relative z-40 ${
+        className={`bg-gray-50 dark:bg-zinc-900 transition-[height] duration-300 relative z-30 ${
           hovered && !isMobile ? "h-14" : "h-12"
         }`}
       >
@@ -133,7 +133,7 @@ const Header = () => {
 
           {/* Mobile Navigation: Burger Menu */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-50 relative cursor-pointer"
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-40 relative cursor-pointer"
             onClick={toggleSidebar}
             onTouchEnd={(e) => {
               e.preventDefault();
@@ -150,7 +150,7 @@ const Header = () => {
 
       {/* Mobile Sidebar Overlay */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden transition-opacity duration-500 cursor-pointer ${
+        className={`fixed inset-0 bg-black bg-opacity-60 z-50 md:hidden transition-opacity duration-500 cursor-pointer ${
           sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeSidebar}
@@ -174,7 +174,7 @@ const Header = () => {
           <button
             onClick={closeSidebar}
             onTouchEnd={(e) => {
-              e.preventDefault();
+              // e.preventDefault();
               closeSidebar();
             }}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110 cursor-pointer"
