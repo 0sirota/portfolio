@@ -226,10 +226,7 @@ const Hero = () => {
             />
           </div>
           
-          {/* Responsive subtitle */}
-          <p className="mt-4 text-sm sm:text-base md:text-lg text-zinc-400 italic opacity-80">
-            *Best experienced on desktop
-          </p>
+
         </div>
       </div>
     </section>
