@@ -130,25 +130,22 @@ const Header = () => {
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden transition-opacity duration-500"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-white dark:bg-zinc-900 shadow-xl transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
-          sidebarOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-zinc-900 shadow-2xl transform transition-all duration-500 ease-in-out z-50 md:hidden ${
+          sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
-        {/* Sidebar Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-zinc-800">
-          <h2 className="text-xl font-semibold text-black dark:text-neutral-200">
-            Navigation
-          </h2>
+        {/* Close Button */}
+        <div className="flex justify-end p-4">
           <button
             onClick={() => setSidebarOpen(false)}
-            className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors"
+            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110"
             aria-label="Close menu"
           >
             <IconX className="h-6 w-6 text-black dark:text-neutral-200" />
@@ -156,22 +153,22 @@ const Header = () => {
         </div>
 
         {/* Sidebar Navigation Links */}
-        <nav className="p-4">
-          <ul className="space-y-2">
+        <nav className="px-4 pb-4 h-full flex flex-col justify-center">
+          <ul className="space-y-8 flex flex-col justify-center flex-1">
             {links.map((link, index) => (
               <li key={index}>
                 <a
                   href={link.href}
                   target={link.target}
                   onClick={handleLinkClick}
-                  className="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors group"
+                  className="flex items-center space-x-6 p-4 rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-200 group hover:scale-105"
                 >
-                  <div className="h-6 w-6 flex-shrink-0">
+                  <div className="h-8 w-8 flex-shrink-0">
                     {React.cloneElement(link.icon, {
-                      className: "h-full w-full text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-800 dark:group-hover:text-neutral-200 transition-colors"
+                      className: "h-full w-full text-neutral-600 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200"
                     })}
                   </div>
-                  <span className="text-neutral-800 dark:text-neutral-200 font-medium">
+                  <span className="text-lg text-neutral-800 dark:text-neutral-200 font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
                     {link.title}
                   </span>
                 </a>
