@@ -99,6 +99,78 @@ const Project = () => {
     },
   ];
 
+  // Enhanced LayoutGrid wrapper with better mobile modal handling
+  const EnhancedLayoutGrid = ({ cards, alternatingLayout = true }) => {
+    return (
+      <div className="relative">
+        <LayoutGrid 
+          cards={cards} 
+          alternatingLayout={alternatingLayout}
+          // Add mobile-specific props if your LayoutGrid component supports them
+          modalProps={{
+            // Enhanced overlay styling for better mobile interaction
+            overlayClassName: "fixed inset-0 z-50 bg-black/80 backdrop-blur-sm touch-none",
+            // Ensure overlay covers entire screen and is easily tappable
+            overlayStyle: {
+              touchAction: 'none',
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none'
+            },
+            // Add close button for mobile
+            showCloseButton: true,
+            closeButtonClassName: "fixed top-4 right-4 z-60 bg-white/10 backdrop-blur-sm rounded-full p-3 text-white hover:bg-white/20 transition-colors md:hidden",
+            // Enhanced modal content wrapper
+            contentWrapperClassName: "relative z-50 max-h-[90vh] max-w-[90vw] mx-auto my-auto"
+          }}
+        />
+        
+        {/* Fallback: Custom overlay handler for mobile if LayoutGrid doesn't support modalProps */}
+        <style jsx>{`
+          @media (max-width: 768px) {
+            /* Ensure modal overlays are fully interactive on mobile */
+            :global(.layout-grid-overlay) {
+              position: fixed !important;
+              top: 0 !important;
+              left: 0 !important;
+              right: 0 !important;
+              bottom: 0 !important;
+              z-index: 9999 !important;
+              background: rgba(0, 0, 0, 0.8) !important;
+              backdrop-filter: blur(4px) !important;
+              touch-action: none !important;
+              -webkit-touch-callout: none !important;
+              -webkit-user-select: none !important;
+              user-select: none !important;
+              cursor: pointer !important;
+            }
+            
+            /* Make modal content non-clickable for closing */
+            :global(.layout-grid-modal-content) {
+              pointer-events: auto !important;
+              cursor: default !important;
+            }
+            
+            /* Add visible close area indicator */
+            :global(.layout-grid-overlay)::before {
+              content: "Tap anywhere to close" !important;
+              position: absolute !important;
+              top: 20px !important;
+              left: 50% !important;
+              transform: translateX(-50%) !important;
+              color: white !important;
+              font-size: 14px !important;
+              background: rgba(0, 0, 0, 0.6) !important;
+              padding: 8px 16px !important;
+              border-radius: 20px !important;
+              z-index: 10000 !important;
+            }
+          }
+        `}</style>
+      </div>
+    );
+  };
+
   const makerlabCards = [
     {
       id: 1,
@@ -106,7 +178,6 @@ const Project = () => {
       className: "md:col-span-2",
       thumbnail: "/assets/project_media/clock_lamp.jpg",
     },
-
   ];
 
   // ScrumScape project images
@@ -238,7 +309,7 @@ const Project = () => {
              Examples include a real-time updating clock lamp and an AI-powered sports tracking camera.
           </p>
             <div className="w-full mb-6">
-            <LayoutGrid cards={makerlabCards} alternatingLayout={true} />
+            <EnhancedLayoutGrid cards={makerlabCards} alternatingLayout={true} />
           </div>
 
         </div>
@@ -279,7 +350,7 @@ const Project = () => {
              Built using a robust tech stack including <strong>PHP</strong> (managed through <strong>phpMyAdmin</strong>) and a <strong>MySQL</strong> database on the server side, alongside <strong>JavaScript</strong>, <strong>HTML</strong>, <strong>CSS</strong>, and the <strong>Bootstrap</strong> framework for the responsive front‑end.
           </p>
           <div className="w-full mb-6">
-            <LayoutGrid cards={scrumScapeCards} alternatingLayout={true} />
+            <EnhancedLayoutGrid cards={scrumScapeCards} alternatingLayout={true} />
           </div>
         </div>
       ),
@@ -299,7 +370,7 @@ const Project = () => {
             The project showcases expertise in GUI development, event‑driven programming, and creating engaging user experiences through thoughtful interface design.
           </p>
           <div className="w-full mb-6">
-            <LayoutGrid cards={fieryDragonsCards} alternatingLayout={true} />
+            <EnhancedLayoutGrid cards={fieryDragonsCards} alternatingLayout={true} />
           </div>
         </div>
       ),
@@ -340,7 +411,7 @@ const Project = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    d="M9 19v-6a2 2 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                   />
                 </svg>
               </div>
@@ -388,7 +459,7 @@ const Project = () => {
             The core navigation library was written in <strong>C++</strong> for <strong>Arduino</strong>, with supplementary utilities developed in <strong>Python</strong> using <strong>CircuitPython</strong>.
           </p>
           <div className="w-full mb-4">
-            <LayoutGrid cards={drawboticsCards} alternatingLayout={true} />
+            <EnhancedLayoutGrid cards={drawboticsCards} alternatingLayout={true} />
           </div>
           <a
             href="https://github.com/Drawbotic/Drawbotic-Navigation-Arduino"
@@ -420,7 +491,7 @@ const Project = () => {
             </video>
           </div>
           <div className="w-full mb-2">
-            <LayoutGrid cards={snakeRLCards} alternatingLayout={true} />
+            <EnhancedLayoutGrid cards={snakeRLCards} alternatingLayout={true} />
           </div>
           <a
             href="https://github.com/DimitrisGahtidis/RL-Snake-Mini-Project"
