@@ -24,11 +24,13 @@ export default function App() {
   useEffect(() => {
     // Apply dark mode by default when the component mounts
     document.documentElement.classList.add("dark");
+    document.body.style.backgroundColor = '';
+    document.documentElement.style.backgroundColor = '';
   }, []);
 
   return (
     <>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-gray-50 dark:bg-zinc-900">
         <Toaster
           position="top-center"
           duration={4000}
