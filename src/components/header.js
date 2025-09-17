@@ -80,14 +80,14 @@ const Header = () => {
     },
   ];
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (e) => {
     setSidebarOpen(false);
   };
 
   return (
     <>
       <header
-        className={`bg-gray-50 dark:bg-zinc-900 transition-[height] duration-300 relative z-50 ${
+        className={`bg-gray-50 dark:bg-zinc-900 transition-[height] duration-300 relative z-40 ${
           hovered && !isMobile ? "h-14" : "h-12"
         }`}
       >
@@ -118,9 +118,14 @@ const Header = () => {
 
           {/* Mobile Navigation: Burger Menu */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors"
-            onClick={() => setSidebarOpen(true)}
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-10"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setSidebarOpen(true);
+            }}
             aria-label="Open menu"
+            type="button"
           >
             <IconMenu2 className="h-6 w-6 text-black dark:text-neutral-200" />
           </button>
@@ -144,9 +149,14 @@ const Header = () => {
         {/* Close Button */}
         <div className="flex justify-end p-4">
           <button
-            onClick={() => setSidebarOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setSidebarOpen(false);
+            }}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110"
             aria-label="Close menu"
+            type="button"
           >
             <IconX className="h-6 w-6 text-black dark:text-neutral-200" />
           </button>
