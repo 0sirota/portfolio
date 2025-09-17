@@ -5,6 +5,8 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
   IconBriefcase,
+  IconFileText,
+  IconMessage,
   IconMail,
   IconHome,
   IconBrandLinkedin,
@@ -18,6 +20,46 @@ const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Debug logging
+  const toggleSidebar = () => {
+    console.log('Burger clicked! Current state:', sidebarOpen);
+    setSidebarOpen(prev => {
+      const newState = !prev;
+      console.log('Setting sidebar to:', newState);
+      return newState;
+    });
+  };
+
+  const closeSidebar = () => {
+    console.log('Closing sidebar');
+    setSidebarOpen(false);
+  };
+
+  // Check for mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Prevent body scroll when sidebar is open
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [sidebarOpen]);
+
   const links = [
     {
       title: "Home",
@@ -29,6 +71,11 @@ const Header = () => {
       icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#projects",
     },
+    // {
+    //   title: "Resume",
+    //   icon: <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+    //   href: "#resume",
+    // },
     {
       title: "Contact",
       icon: <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
@@ -48,50 +95,34 @@ const Header = () => {
     },
   ];
 
-  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
-  const closeSidebar = () => setSidebarOpen(false);
-
-  // Detect mobile
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Prevent body scroll when sidebar is open
-  useEffect(() => {
-    document.body.style.overflow = sidebarOpen ? "hidden" : "unset";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [sidebarOpen]);
-
-  // Calculate dynamic vertical spacing for sidebar options
-  const getItemSpacing = () => {
-    const totalItems = links.length;
-    const topBottomPadding = 16; // px
-    const availableHeight = window.innerHeight - topBottomPadding * 2;
-    return availableHeight / totalItems - 48; // subtract estimated item height
+  const handleLinkClick = () => {
+    setSidebarOpen(false);
   };
 
   return (
     <>
       <header
-        className={`bg-gray-50 dark:bg-zinc-900 transition-[height] duration-300 relative z-50 ${
+        className={`bg-gray-50 dark:bg-zinc-900 transition-[height] duration-300 relative z-40 ${
           hovered && !isMobile ? "h-14" : "h-12"
         }`}
       >
         <div className="flex items-center justify-between h-full p-4">
-          {/* Left: Logo */}
+          {/* Left Section: Logo and Title */}
           <div className="flex items-center space-x-4">
-            <Image src="/assets/logos/logo5.png" alt="Logo" width={60} height={60} />
+            {/* Logo */}
+            <Image
+              src="/assets/logos/logo5.png"
+              alt="Logo"
+              width={60}
+              height={60}
+            />
+            {/* Title */}
             <h1 className="text-2xl md:text-3xl font-Helvetica font-bold text-black dark:text-neutral-200">
               Oliver Sirota
             </h1>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation: Floating Dock */}
           <div
             className="ml-auto hidden md:flex"
             onMouseEnter={() => setHovered(true)}
@@ -100,9 +131,9 @@ const Header = () => {
             <FloatingDock items={links} hovered={hovered} />
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation: Burger Menu */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-50 relative pointer-events-auto"
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-50 relative"
             onClick={toggleSidebar}
             aria-label="Open menu"
             type="button"
@@ -112,54 +143,55 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Overlay */}
-      <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 md:hidden ${
-          sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={closeSidebar}
-      />
+      {/* Mobile Sidebar Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden transition-opacity duration-500"
+          onClick={closeSidebar}
+        />
+      )}
 
-      {/* Sidebar */}
+      {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full bg-white dark:bg-zinc-900 shadow-2xl transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
-          sidebarOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 right-0 h-full w-auto min-w-[200px] bg-white dark:bg-zinc-900 shadow-2xl transform transition-all duration-500 ease-in-out z-50 md:hidden ${
+          sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
-        style={{ width: "max-content", minWidth: 200, padding: "16px 8px" }}
       >
         {/* Close Button */}
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end p-3">
           <button
             onClick={closeSidebar}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110"
             aria-label="Close menu"
+            type="button"
           >
             <IconX className="h-6 w-6 text-black dark:text-neutral-200" />
           </button>
         </div>
 
-        {/* Sidebar Links */}
-        <nav className="flex flex-col justify-between h-[calc(100%-64px)]">
-          {links.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              target={link.target}
-              onClick={closeSidebar}
-              className="flex items-center px-2 py-4 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-200 group"
-              style={{ marginBottom: index < links.length - 1 ? 16 : 0 }}
-            >
-              <div className="h-6 w-6 flex-shrink-0 mr-4">
-                {React.cloneElement(link.icon, {
-                  className:
-                    "h-full w-full text-neutral-600 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200",
-                })}
-              </div>
-              <span className="text-lg text-neutral-800 dark:text-neutral-200 font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                {link.title}
-              </span>
-            </a>
-          ))}
+        {/* Sidebar Navigation Links */}
+        <nav className="px-3 pb-3">
+          <ul className="space-y-2">
+            {links.map((link, index) => (
+              <li key={index}>
+                <a
+                  href={link.href}
+                  target={link.target}
+                  onClick={closeSidebar}
+                  className="flex items-center space-x-6 px-3 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-200 group hover:scale-105"
+                >
+                  <div className="h-6 w-6 flex-shrink-0">
+                    {React.cloneElement(link.icon, {
+                      className: "h-full w-full text-neutral-600 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200"
+                    })}
+                  </div>
+                  <span className="text-base text-neutral-800 dark:text-neutral-200 font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 whitespace-nowrap">
+                    {link.title}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
     </>
