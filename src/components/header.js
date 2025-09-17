@@ -20,6 +20,16 @@ const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Debug logging
+  const toggleSidebar = () => {
+    console.log('Burger clicked! Current state:', sidebarOpen);
+    setSidebarOpen(prev => {
+      const newState = !prev;
+      console.log('Setting sidebar to:', newState);
+      return newState;
+    });
+  };
+
   // Check for mobile viewport
   useEffect(() => {
     const checkMobile = () => {
@@ -80,7 +90,7 @@ const Header = () => {
     },
   ];
 
-  const handleLinkClick = (e) => {
+  const handleLinkClick = () => {
     setSidebarOpen(false);
   };
 
@@ -118,12 +128,8 @@ const Header = () => {
 
           {/* Mobile Navigation: Burger Menu */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-10"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setSidebarOpen(true);
-            }}
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-50 relative"
+            onClick={toggleSidebar}
             aria-label="Open menu"
             type="button"
           >
@@ -149,11 +155,7 @@ const Header = () => {
         {/* Close Button */}
         <div className="flex justify-end p-4">
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setSidebarOpen(false);
-            }}
+            onClick={() => setSidebarOpen(false)}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110"
             aria-label="Close menu"
             type="button"
