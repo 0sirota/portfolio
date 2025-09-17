@@ -133,10 +133,15 @@ const Header = () => {
 
           {/* Mobile Navigation: Burger Menu */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-50 relative"
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-50 relative cursor-pointer"
             onClick={toggleSidebar}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              toggleSidebar();
+            }}
             aria-label="Open menu"
             type="button"
+            style={{ cursor: 'pointer', touchAction: 'manipulation' }}
           >
             <IconMenu2 className="h-6 w-6 text-black dark:text-neutral-200" />
           </button>
@@ -144,12 +149,19 @@ const Header = () => {
       </header>
 
       {/* Mobile Sidebar Overlay */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden transition-opacity duration-500"
-          onClick={closeSidebar}
-        />
-      )}
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden transition-opacity duration-500 cursor-pointer ${
+          sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={closeSidebar}
+        onTouchEnd={(e) => {
+          e.preventDefault();
+          closeSidebar();
+        }}
+        style={{ cursor: 'pointer', touchAction: 'manipulation' }}
+        role="button"
+        aria-label="Close sidebar"
+      />
 
       {/* Mobile Sidebar */}
       <div
@@ -161,9 +173,14 @@ const Header = () => {
         <div className="flex justify-end p-3">
           <button
             onClick={closeSidebar}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110"
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              closeSidebar();
+            }}
+            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110 cursor-pointer"
             aria-label="Close menu"
             type="button"
+            style={{ cursor: 'pointer', touchAction: 'manipulation' }}
           >
             <IconX className="h-6 w-6 text-black dark:text-neutral-200" />
           </button>
