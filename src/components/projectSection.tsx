@@ -106,56 +106,83 @@ const Project = () => {
         <LayoutGrid 
           cards={cards} 
           alternatingLayout={alternatingLayout}
-          // Add mobile-specific props if your LayoutGrid component supports them
-          modalProps={{
-            // Enhanced overlay styling for better mobile interaction
-            overlayClassName: "fixed inset-0 z-50 bg-black/80 backdrop-blur-sm touch-none",
-            // Ensure overlay covers entire screen and is easily tappable
-            overlayStyle: {
-              touchAction: 'none',
-              WebkitTouchCallout: 'none',
-              WebkitUserSelect: 'none',
-              userSelect: 'none'
-            },
-            // Add close button for mobile
-            showCloseButton: true,
-            closeButtonClassName: "fixed top-4 right-4 z-60 bg-white/10 backdrop-blur-sm rounded-full p-3 text-white hover:bg-white/20 transition-colors md:hidden",
-            // Enhanced modal content wrapper
-            contentWrapperClassName: "relative z-50 max-h-[90vh] max-w-[90vw] mx-auto my-auto"
-          }}
         />
         
-        {/* Fallback: Custom overlay handler for mobile if LayoutGrid doesn't support modalProps */}
-        <style jsx>{`
+        {/* Enhanced mobile modal styles */}
+        <style jsx global>{`
           @media (max-width: 768px) {
             /* Ensure modal overlays are fully interactive on mobile */
-            :global(.layout-grid-overlay) {
+            .layout-grid-overlay,
+            [data-layout-grid-overlay],
+            .modal-overlay,
+            [role="dialog"]::backdrop {
               position: fixed !important;
               top: 0 !important;
               left: 0 !important;
               right: 0 !important;
               bottom: 0 !important;
+              width: 100vw !important;
+              height: 100vh !important;
               z-index: 9999 !important;
               background: rgba(0, 0, 0, 0.8) !important;
               backdrop-filter: blur(4px) !important;
-              touch-action: none !important;
+              touch-action: manipulation !important;
               -webkit-touch-callout: none !important;
               -webkit-user-select: none !important;
               user-select: none !important;
               cursor: pointer !important;
+              pointer-events: auto !important;
             }
             
-            /* Make modal content non-clickable for closing */
-            :global(.layout-grid-modal-content) {
+            /* Make the entire overlay clickable */
+            .layout-grid-overlay *,
+            [data-layout-grid-overlay] *,
+            .modal-overlay * {
+              pointer-events: none !important;
+            }
+            
+            /* But allow the actual modal content to be interactive */
+            .layout-grid-modal-content,
+            [data-modal-content],
+            .modal-content,
+            img[data-modal-image] {
               pointer-events: auto !important;
               cursor: default !important;
+              touch-action: manipulation !important;
             }
             
-            /* Add visible close area indicator */
-            :global(.layout-grid-overlay)::before {
-              content: "Tap anywhere to close" !important;
-              position: absolute !important;
+            /* Add a close button for mobile */
+            .layout-grid-overlay::before,
+            [data-layout-grid-overlay]::before,
+            .modal-overlay::before {
+              content: "✕" !important;
+              position: fixed !important;
               top: 20px !important;
+              right: 20px !important;
+              width: 40px !important;
+              height: 40px !important;
+              color: white !important;
+              font-size: 24px !important;
+              font-weight: bold !important;
+              background: rgba(0, 0, 0, 0.8) !important;
+              border-radius: 50% !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+              z-index: 10001 !important;
+              cursor: pointer !important;
+              pointer-events: auto !important;
+              touch-action: manipulation !important;
+              border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            }
+            
+            /* Add tap anywhere hint */
+            .layout-grid-overlay::after,
+            [data-layout-grid-overlay]::after,
+            .modal-overlay::after {
+              content: "Tap anywhere to close" !important;
+              position: fixed !important;
+              bottom: 20px !important;
               left: 50% !important;
               transform: translateX(-50%) !important;
               color: white !important;
@@ -163,7 +190,8 @@ const Project = () => {
               background: rgba(0, 0, 0, 0.6) !important;
               padding: 8px 16px !important;
               border-radius: 20px !important;
-              z-index: 10000 !important;
+              z-index: 10001 !important;
+              pointer-events: none !important;
             }
           }
         `}</style>
