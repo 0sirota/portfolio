@@ -87,6 +87,9 @@ const Hero = () => {
     renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
     renderer.setClearColor(0x09090b, 1);
 
+    // CRITICAL FIX: Disable pointer events on the canvas
+    renderer.domElement.style.pointerEvents = 'none';
+
     containerRef.current.appendChild(renderer.domElement);
 
     // Save the renderer and camera to refs
@@ -172,10 +175,10 @@ const Hero = () => {
 
   return (
     <section id="hero" className="dark:bg-zinc-950 text-white relative w-full h-screen overflow-hidden">
-      {/* 3D Model Background */}
+      {/* 3D Model Background - FIXED: Added pointer-events-none */}
       <div
         ref={containerRef}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full pointer-events-none"
         style={{
           height: "100vh",
           width: "100vw",
@@ -225,8 +228,6 @@ const Hero = () => {
               textClassName="!text-[1em] font-bold"
             />
           </div>
-          
-
         </div>
       </div>
     </section>
