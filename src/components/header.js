@@ -20,38 +20,27 @@ const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Debug logging
   const toggleSidebar = () => {
-    console.log('Burger clicked! Current state:', sidebarOpen);
-    setSidebarOpen(prev => {
+    console.log("Burger clicked! Current state:", sidebarOpen);
+    setSidebarOpen((prev) => {
       const newState = !prev;
-      console.log('Setting sidebar to:', newState);
+      console.log("Setting sidebar to:", newState);
       return newState;
     });
   };
 
-  // Check for mobile viewport
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Prevent body scroll when sidebar is open
   useEffect(() => {
-    if (sidebarOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
+    document.body.style.overflow = sidebarOpen ? "hidden" : "unset";
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [sidebarOpen]);
 
@@ -66,11 +55,6 @@ const Header = () => {
       icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#projects",
     },
-    // {
-    //   title: "Resume",
-    //   icon: <IconFileText className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-    //   href: "#resume",
-    // },
     {
       title: "Contact",
       icon: <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
@@ -90,28 +74,19 @@ const Header = () => {
     },
   ];
 
-  const handleLinkClick = () => {
-    setSidebarOpen(false);
-  };
+  const handleLinkClick = () => setSidebarOpen(false);
 
   return (
     <>
       <header
-        className={`bg-gray-50 dark:bg-zinc-900 transition-[height] duration-300 relative z-40 ${
+        className={`bg-gray-50 dark:bg-zinc-900 transition-[height] duration-300 relative z-50 ${
           hovered && !isMobile ? "h-14" : "h-12"
         }`}
       >
         <div className="flex items-center justify-between h-full p-4">
           {/* Left Section: Logo and Title */}
           <div className="flex items-center space-x-4">
-            {/* Logo */}
-            <Image
-              src="/assets/logos/logo5.png"
-              alt="Logo"
-              width={60}
-              height={60}
-            />
-            {/* Title */}
+            <Image src="/assets/logos/logo5.png" alt="Logo" width={60} height={60} />
             <h1 className="text-2xl md:text-3xl font-Helvetica font-bold text-black dark:text-neutral-200">
               Oliver Sirota
             </h1>
@@ -128,8 +103,9 @@ const Header = () => {
 
           {/* Mobile Navigation: Burger Menu */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-50 relative"
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-50 relative pointer-events-auto"
             onClick={toggleSidebar}
+            onTouchStart={toggleSidebar} // ensures touch works
             aria-label="Open menu"
             type="button"
           >
@@ -139,23 +115,23 @@ const Header = () => {
       </header>
 
       {/* Mobile Sidebar Overlay */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden transition-opacity duration-500"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 md:hidden ${
+          sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={handleLinkClick}
+      />
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-zinc-900 shadow-2xl transform transition-all duration-500 ease-in-out z-50 md:hidden ${
-          sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+        className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-zinc-900 shadow-2xl transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
+          sidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Close Button */}
         <div className="flex justify-end p-4">
           <button
-            onClick={() => setSidebarOpen(false)}
+            onClick={handleLinkClick}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110"
             aria-label="Close menu"
             type="button"
@@ -164,7 +140,7 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Sidebar Navigation Links */}
+        {/* Sidebar Links */}
         <nav className="px-4 pb-4 h-full flex flex-col justify-center">
           <ul className="space-y-8 flex flex-col justify-center flex-1">
             {links.map((link, index) => (
@@ -177,7 +153,8 @@ const Header = () => {
                 >
                   <div className="h-8 w-8 flex-shrink-0">
                     {React.cloneElement(link.icon, {
-                      className: "h-full w-full text-neutral-600 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200"
+                      className:
+                        "h-full w-full text-neutral-600 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200",
                     })}
                   </div>
                   <span className="text-lg text-neutral-800 dark:text-neutral-200 font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
