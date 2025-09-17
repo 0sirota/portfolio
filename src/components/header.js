@@ -151,7 +151,7 @@ const Header = () => {
       {/* Mobile Sidebar Overlay */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden transition-opacity duration-500 cursor-pointer ${
-          sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          sidebarOpen ? "opacity-100 pointer-events-auto" : " pointer-events-none"
         }`}
         onClick={closeSidebar}
         onTouchEnd={(e) => {
@@ -166,7 +166,7 @@ const Header = () => {
       {/* Mobile Sidebar */}
       <div
         className={`fixed top-0 right-0 h-full w-auto min-w-[200px] bg-white dark:bg-zinc-900 shadow-2xl transform transition-all duration-500 ease-in-out z-50 md:hidden ${
-          sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+          sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full "
         }`}
       >
         {/* Close Button */}
