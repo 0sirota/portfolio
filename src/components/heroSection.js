@@ -14,10 +14,24 @@ const Hero = () => {
   const cameraRef = useRef(null);  // Ref for the camera
   const modelRef = useRef(null);  // Ref for the 3D model
   const [isHidden, setIsHidden] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
+  // Check if device is desktop
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth > 1024);
+    };
+    
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+
+  // Dynamic words based on device type
   const words1 = [
     {
-      text: "Hi!👋",
+      text: isDesktop ? "Hi!👋" : "Hi!",
       className: "",
     },
   ];
