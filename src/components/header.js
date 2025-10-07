@@ -10,55 +10,55 @@ import {
   IconMail,
   IconHome,
   IconBrandLinkedin,
-  IconMenu2,
-  IconX,
+  // IconMenu2,
+  // IconX,
 } from "@tabler/icons-react";
 import Image from "next/image";
 
 const Header = () => {
   const [hovered, setHovered] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  // const [sidebarOpen, setSidebarOpen] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
 
   // Debug logging
-  const toggleSidebar = () => {
-    console.log('Burger clicked! Current state:', sidebarOpen);
-    setSidebarOpen(prev => {
-      const newState = !prev;
-      console.log('Setting sidebar to:', newState);
-      return newState;
-    });
-  };
+  // const toggleSidebar = () => {
+  //   console.log('Burger clicked! Current state:', sidebarOpen);
+  //   setSidebarOpen(prev => {
+  //     const newState = !prev;
+  //     console.log('Setting sidebar to:', newState);
+  //     return newState;
+  //   });
+  // };
 
-  const closeSidebar = () => {
-    console.log('Closing sidebar');
-    setSidebarOpen(false);
-  };
+  // const closeSidebar = () => {
+  //   console.log('Closing sidebar');
+  //   setSidebarOpen(false);
+  // };
 
-  // Check for mobile viewport
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+  // // Check for mobile viewport
+  // useEffect(() => {
+  //   const checkMobile = () => {
+  //     setIsMobile(window.innerWidth < 768);
+  //   };
     
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+  //   checkMobile();
+  //   window.addEventListener('resize', checkMobile);
     
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  //   return () => window.removeEventListener('resize', checkMobile);
+  // }, []);
 
-  // Prevent body scroll when sidebar is open
-  useEffect(() => {
-    if (sidebarOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+  // // Prevent body scroll when sidebar is open
+  // useEffect(() => {
+  //   if (sidebarOpen) {
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     document.body.style.overflow = 'unset';
+  //   }
     
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [sidebarOpen]);
+  //   return () => {
+  //     document.body.style.overflow = 'unset';
+  //   };
+  // }, [sidebarOpen]);
 
   const links = [
     {
@@ -95,15 +95,15 @@ const Header = () => {
     },
   ];
 
-  const handleLinkClick = () => {
-    setSidebarOpen(false);
-  };
+  // const handleLinkClick = () => {
+  //   setSidebarOpen(false);
+  // };
 
   return (
     <>
       <header
         className={`bg-gray-50 dark:bg-zinc-900 transition-[height] duration-300 relative z-30 ${
-          hovered && !isMobile ? "h-14" : "h-12"
+          hovered ? "h-14" : "h-12"
         }`}
       >
         <div className="flex items-center justify-between h-full p-4">
@@ -131,7 +131,8 @@ const Header = () => {
             <FloatingDock items={links} hovered={hovered} />
           </div>
 
-          {/* Mobile Navigation: Burger Menu */}
+          {/* 
+          // Mobile Navigation: Burger Menu — commented out
           <button
             className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-40 relative cursor-pointer"
             onClick={toggleSidebar}
@@ -145,10 +146,12 @@ const Header = () => {
           >
             <IconMenu2 className="h-6 w-6 text-black dark:text-neutral-200" />
           </button>
+          */}
         </div>
       </header>
 
-      {/* Mobile Sidebar Overlay */}
+      {/*
+      // Mobile Sidebar Overlay — commented out
       <div
         className={`fixed inset-0 bg-black bg-opacity-60 z-50 md:hidden transition-opacity duration-500 cursor-pointer ${
           sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -163,18 +166,16 @@ const Header = () => {
         aria-label="Close sidebar"
       />
 
-      {/* Mobile Sidebar */}
+      // Mobile Sidebar — commented out
       <div
         className={`fixed top-0 right-0 h-full w-auto min-w-[200px] bg-white dark:bg-zinc-900 shadow-2xl transform transition-all duration-500 ease-in-out z-50 md:hidden ${
           sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
-        {/* Close Button */}
         <div className="flex justify-end p-3">
           <button
             onClick={closeSidebar}
             onTouchEnd={(e) => {
-              // e.preventDefault();
               closeSidebar();
             }}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110 cursor-pointer"
@@ -186,7 +187,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Sidebar Navigation Links */}
         <nav className="px-3 pb-3">
           <ul className="space-y-2">
             {links.map((link, index) => (
@@ -211,6 +211,7 @@ const Header = () => {
           </ul>
         </nav>
       </div>
+      */}
     </>
   );
 };
