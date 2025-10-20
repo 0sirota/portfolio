@@ -287,11 +287,11 @@ const Project = () => {
             The Universal Book – Engineering Final Year Project
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Currently developing a web application as my Engineering Final Year Project, leading a team of six students. 
-            The Universal Book is a platform for authors to write books collaboratively and publish them independent of traditional publishers as well as for readers to discover and read these books.
-            The application includes features such as live collaborative editing and an AI assistant chatbot. 
-            
+            Developed a web application as my Engineering Final Year Project, leading a team of six students. 
+            <strong>The Universal Book</strong> is a platform for authors to write collaboratively and publish independently of traditional publishers, while also allowing readers to discover and read these books. 
+            The application includes features such as live collaborative editing, an AI assistant chatbot, hate-speech detection, group chats, payment integration, NLP-based translation, video generation, and a follower/following system.
           </p>
+
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             The application is coded in <strong>React</strong>, containerised with <strong>Docker</strong>, utilises <strong>Prisma</strong> as an ORM for a <strong>PostgreSQL</strong> database, and is hosted on the <strong>Nectar Research Cloud</strong>.
           </p>
@@ -314,16 +314,25 @@ const Project = () => {
             FindingNibbles - Full Year Software Engineering Team Project
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Currently developing a mobile application in a team of fifteen students. 
+            Developed a mobile application in a team of fifteen students. 
             FindingNibbles helps users decide on restaurants to eat at based on user preferences and dietary requirements through analysing, sorting, and categorising nearby restaurants.
             The application includes features such as AI generated recipes. 
           </p>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
             The solution pairs a <strong>Flutter</strong> (<strong>Dart</strong>) front‑end with a <strong>NestJS</strong> back‑end; both services run in <strong>Docker</strong> containers, using <strong>Prisma</strong> to interface with a shared <strong>PostgreSQL</strong> database.
           </p>
+          <a
+            href="https://github.com/Monash-FIT3170/2025W2-FindingNibbles"
+            className="text-blue-500 hover:underline text-sm md:text-base font-medium"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Source Code on GitHub ↗
+          </a>
         </div>
       ),
     },
+
         {
       title: "2025",
       content: (
@@ -331,14 +340,22 @@ const Project = () => {
           <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
             MakerLab 
           </h3>
-          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-             Designed and built a range of artefacts for the Monash MakerLab unit, showcasing my ability to turn ideas into functional prototypes. 
-             These projects highlight my creativity, technical problem-solving, and practical engineering skills. 
-             Examples include a real-time updating clock lamp and an AI-powered sports tracking camera.
-          </p>
+            <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
+              Designed and built a series of MakerLab projects for the Monash unit, demonstrating my ability to turn ideas into functional prototypes. These projects highlight my creativity, problem-solving, and practical engineering skills. Notable examples include:
+            </p>
+            <ul className="list-disc list-inside text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
+              <li>
+                <strong>Real-time clock lamp</strong> – Maintains precise time using an RTC module and features a 3D-printed gear system mounted on a bearing, rotated via a stepper motor.
+              </li>
+              <li>
+                <strong>AI-powered fencing tracking camera</strong> – Tracks movement in real time using OpenCV and YOLOv5, with an ESP32 managing wireless communication and servo control.
+              </li>
+            </ul>
+
             <div className="w-full mb-6">
             <EnhancedLayoutGrid cards={makerlabCards} alternatingLayout={true} />
           </div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/IWi38EziV8w?si=tO393k8JK--aLAKF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
         </div>
       ),
