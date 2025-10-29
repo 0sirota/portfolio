@@ -356,7 +356,7 @@ const Project = () => {
             <EnhancedLayoutGrid cards={makerlabCards} alternatingLayout={true} />
           </div>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/IWi38EziV8w?si=tO393k8JK--aLAKF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/WcGGAOJ4Shc?si=qmnwsHhmaK6XT31L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       ),
     },
