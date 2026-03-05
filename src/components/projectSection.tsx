@@ -280,6 +280,27 @@ const Project = () => {
 
   const data = [
     {
+      title: "2026",
+      content: (
+        <div>
+          <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
+            AI Fencing Coach – Online Coaching Web App
+          </h3>
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
+            Built an online AI fencing coach web app using <strong>Lovable</strong>. The app analyses uploaded fencing footage using AI and provides tailored, detailed feedback to help fencers improve their technique.
+          </p>
+          <a
+            href="https://my-fencing-coach.lovable.app"
+            className="text-blue-500 hover:underline text-sm md:text-base font-medium"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit AI Fencing Coach ↗
+          </a>
+        </div>
+      ),
+    },
+    {
       title: "2025",
       content: (
         <div>
