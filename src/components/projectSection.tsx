@@ -308,7 +308,7 @@ const Project = () => {
             Dr Irena Vigderovich – Medical Practice Website
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Designed and developed a website for a doctor client, featuring a clear practice overview and an integrated link to HotDoc for booking appointments. Deployed on <strong>Vercel</strong> and configured with <strong>Google Search Console</strong> to ensure strong visibility in Google search results.
+            Designed and developed a website for a doctor, featuring a clean professional UI, introduction, and an integrated link to HotDoc for booking appointments. Deployed on <strong>Vercel</strong> and configured with <strong>Google Search Console</strong> to ensure strong visibility in Google search results.
           </p>
           <a
             href="https://drvigderovich.vercel.app/"
