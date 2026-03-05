@@ -10,55 +10,35 @@ import {
   IconMail,
   IconHome,
   IconBrandLinkedin,
-  // IconMenu2,
-  // IconX,
+  IconMenu2,
+  IconX,
 } from "@tabler/icons-react";
 import Image from "next/image";
 
 const Header = () => {
   const [hovered, setHovered] = useState(false);
-  // const [sidebarOpen, setSidebarOpen] = useState(false);
-  // const [isMobile, setIsMobile] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Debug logging
-  // const toggleSidebar = () => {
-  //   console.log('Burger clicked! Current state:', sidebarOpen);
-  //   setSidebarOpen(prev => {
-  //     const newState = !prev;
-  //     console.log('Setting sidebar to:', newState);
-  //     return newState;
-  //   });
-  // };
+  const toggleSidebar = () => {
+    setSidebarOpen((prev) => !prev);
+  };
 
-  // const closeSidebar = () => {
-  //   console.log('Closing sidebar');
-  //   setSidebarOpen(false);
-  // };
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
 
-  // // Check for mobile viewport
-  // useEffect(() => {
-  //   const checkMobile = () => {
-  //     setIsMobile(window.innerWidth < 768);
-  //   };
-    
-  //   checkMobile();
-  //   window.addEventListener('resize', checkMobile);
-    
-  //   return () => window.removeEventListener('resize', checkMobile);
-  // }, []);
+  // Prevent body scroll when sidebar is open (better mobile UX)
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
 
-  // // Prevent body scroll when sidebar is open
-  // useEffect(() => {
-  //   if (sidebarOpen) {
-  //     document.body.style.overflow = 'hidden';
-  //   } else {
-  //     document.body.style.overflow = 'unset';
-  //   }
-    
-  //   return () => {
-  //     document.body.style.overflow = 'unset';
-  //   };
-  // }, [sidebarOpen]);
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [sidebarOpen]);
 
   const links = [
     {
@@ -95,10 +75,6 @@ const Header = () => {
     },
   ];
 
-  // const handleLinkClick = () => {
-  //   setSidebarOpen(false);
-  // };
-
   return (
     <>
       <header
@@ -131,8 +107,7 @@ const Header = () => {
             <FloatingDock items={links} hovered={hovered} />
           </div>
 
-          {/* 
-          // Mobile Navigation: Burger Menu — commented out
+          {/* Mobile Navigation: Burger Menu */}
           <button
             className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-40 relative cursor-pointer"
             onClick={toggleSidebar}
@@ -140,20 +115,22 @@ const Header = () => {
               e.preventDefault();
               toggleSidebar();
             }}
-            aria-label="Open menu"
+            aria-label="Toggle menu"
             type="button"
-            style={{ cursor: 'pointer', touchAction: 'manipulation' }}
+            style={{ cursor: "pointer", touchAction: "manipulation" }}
           >
-            <IconMenu2 className="h-6 w-6 text-black dark:text-neutral-200" />
+            {sidebarOpen ? (
+              <IconX className="h-6 w-6 text-black dark:text-neutral-200" />
+            ) : (
+              <IconMenu2 className="h-6 w-6 text-black dark:text-neutral-200" />
+            )}
           </button>
-          */}
         </div>
       </header>
 
-      {/*
-      // Mobile Sidebar Overlay — commented out
+      {/* Mobile Sidebar Overlay */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-60 z-50 md:hidden transition-opacity duration-500 cursor-pointer ${
+        className={`fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden transition-opacity duration-300 cursor-pointer ${
           sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeSidebar}
@@ -161,14 +138,14 @@ const Header = () => {
           e.preventDefault();
           closeSidebar();
         }}
-        style={{ cursor: 'pointer', touchAction: 'manipulation' }}
+        style={{ cursor: "pointer", touchAction: "manipulation" }}
         role="button"
         aria-label="Close sidebar"
       />
 
-      // Mobile Sidebar — commented out
+      {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-auto min-w-[200px] bg-white dark:bg-zinc-900 shadow-2xl transform transition-all duration-500 ease-in-out z-50 md:hidden ${
+        className={`fixed top-0 right-0 h-full w-auto min-w-[220px] bg-white dark:bg-zinc-900 shadow-2xl transform transition-all duration-300 ease-in-out z-50 md:hidden ${
           sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
@@ -176,12 +153,13 @@ const Header = () => {
           <button
             onClick={closeSidebar}
             onTouchEnd={(e) => {
+              e.preventDefault();
               closeSidebar();
             }}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110 cursor-pointer"
             aria-label="Close menu"
             type="button"
-            style={{ cursor: 'pointer', touchAction: 'manipulation' }}
+            style={{ cursor: "pointer", touchAction: "manipulation" }}
           >
             <IconX className="h-6 w-6 text-black dark:text-neutral-200" />
           </button>
@@ -195,11 +173,12 @@ const Header = () => {
                   href={link.href}
                   target={link.target}
                   onClick={closeSidebar}
-                  className="flex items-center space-x-6 px-3 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-200 group hover:scale-105"
+                  className="flex items-center space-x-4 px-3 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-200 group"
                 >
                   <div className="h-6 w-6 flex-shrink-0">
                     {React.cloneElement(link.icon, {
-                      className: "h-full w-full text-neutral-600 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200"
+                      className:
+                        "h-full w-full text-neutral-600 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200",
                     })}
                   </div>
                   <span className="text-base text-neutral-800 dark:text-neutral-200 font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 whitespace-nowrap">
@@ -211,7 +190,6 @@ const Header = () => {
           </ul>
         </nav>
       </div>
-      */}
     </>
   );
 };
