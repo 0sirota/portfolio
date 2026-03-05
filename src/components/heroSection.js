@@ -31,7 +31,7 @@ const Hero = () => {
   // Dynamic words
   const words1 = [
     {
-      text: "Hi! 👋",
+      text: isDesktop ? "Hi! 👋" : "Hi!",
       className: "",
     },
   ];

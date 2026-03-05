@@ -192,7 +192,8 @@ export const TypewriterEffectSmooth = ({
             repeatType: "reverse",
           }}
           className={cn(
-            "block self-center rounded-sm w-[3px] h-6 sm:h-8 md:h-10 bg-blue-500",
+            // Smaller caret on mobile, restore tall caret on large screens
+            "block self-center rounded-sm w-[3px] h-4 sm:h-6 lg:h-10 xl:h-20 bg-blue-500",
             cursorClassName
           )}
         ></motion.span>
