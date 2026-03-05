@@ -27,6 +27,19 @@ const Header = () => {
     setSidebarOpen(false);
   };
 
+  // Lock body scroll when mobile sidebar is open
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [sidebarOpen]);
+
   const links = [
     {
       title: "Home",
@@ -111,29 +124,49 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile sidebar + overlay */}
       {sidebarOpen && (
-        <nav className="md:hidden bg-gray-50 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 px-4 pb-3 shadow-md">
-          <ul className="space-y-1 pt-2">
-            {links.map((link, index) => (
-              <li key={index}>
-                <a
-                  href={link.href}
-                  target={link.target}
-                  onClick={closeSidebar}
-                  className="flex items-center space-x-3 px-2 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors duration-150"
-                >
-                  <span className="h-5 w-5 flex-shrink-0 text-neutral-600 dark:text-neutral-400">
-                    {link.icon}
-                  </span>
-                  <span className="text-sm text-neutral-800 dark:text-neutral-200 font-medium">
-                    {link.title}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <>
+          {/* Dimmed background overlay */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden cursor-pointer"
+            onClick={closeSidebar}
+            aria-label="Close sidebar"
+          />
+
+          {/* Right-hand sliding sidebar */}
+          <nav className="fixed top-0 right-0 h-full w-64 max-w-[75vw] bg-white dark:bg-zinc-900 shadow-2xl z-50 md:hidden transform transition-transform duration-300 translate-x-0">
+            <div className="flex justify-end p-4">
+              <button
+                onClick={closeSidebar}
+                aria-label="Close menu"
+                type="button"
+                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110 cursor-pointer"
+              >
+                <IconX className="h-6 w-6 text-black dark:text-neutral-200" />
+              </button>
+            </div>
+            <ul className="px-4 space-y-2">
+              {links.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    target={link.target}
+                    onClick={closeSidebar}
+                    className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors duration-150"
+                  >
+                    <span className="h-5 w-5 flex-shrink-0 text-neutral-600 dark:text-neutral-400">
+                      {link.icon}
+                    </span>
+                    <span className="text-sm text-neutral-800 dark:text-neutral-200 font-medium">
+                      {link.title}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </>
       )}
     </>
   );
