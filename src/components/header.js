@@ -111,10 +111,6 @@ const Header = () => {
           <button
             className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-40 relative cursor-pointer"
             onClick={toggleSidebar}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-              toggleSidebar();
-            }}
             aria-label="Toggle menu"
             type="button"
             style={{ cursor: "pointer", touchAction: "manipulation" }}
@@ -134,10 +130,6 @@ const Header = () => {
           sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeSidebar}
-        onTouchEnd={(e) => {
-          e.preventDefault();
-          closeSidebar();
-        }}
         style={{ cursor: "pointer", touchAction: "manipulation" }}
         role="button"
         aria-label="Close sidebar"
@@ -152,10 +144,6 @@ const Header = () => {
         <div className="flex justify-end p-3">
           <button
             onClick={closeSidebar}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-              closeSidebar();
-            }}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110 cursor-pointer"
             aria-label="Close menu"
             type="button"

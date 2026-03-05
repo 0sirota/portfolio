@@ -30,7 +30,10 @@ export default function App() {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50 dark:bg-zinc-900" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+      <div
+        className="min-h-screen bg-gray-50 dark:bg-zinc-900 overflow-x-hidden"
+        style={{ paddingTop: "env(safe-area-inset-top)" }}
+      >
         <Toaster
           position="top-center"
           duration={4000}
