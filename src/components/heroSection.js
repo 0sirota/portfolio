@@ -28,10 +28,10 @@ const Hero = () => {
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
-  // Dynamic words based on device type
+  // Dynamic words
   const words1 = [
     {
-      text: isDesktop ? "Hi!👋" : "Hi!",
+      text: "Hi! 👋",
       className: "",
     },
   ];
