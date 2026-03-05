@@ -30,8 +30,14 @@ export const LayoutGrid = ({
   const [lastSelected, setLastSelected] = useState<Card | null>(null);
 
   const handleClick = (card: Card) => {
-    setLastSelected(selected);
-    setSelected(card);
+    // Toggle open/close when tapping the same card (better on mobile)
+    if (selected?.id === card.id) {
+      setLastSelected(selected);
+      setSelected(null);
+    } else {
+      setLastSelected(selected);
+      setSelected(card);
+    }
   };
 
   const handleOutsideClick = () => {

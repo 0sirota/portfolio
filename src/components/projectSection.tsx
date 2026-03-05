@@ -99,102 +99,22 @@ const Project = () => {
     },
   ];
 
-  // Enhanced LayoutGrid wrapper with better mobile modal handling
-  const EnhancedLayoutGrid = ({ cards, alternatingLayout = true }) => {
+  // Simple wrapper around LayoutGrid (helps keep JSX tidy)
+  const EnhancedLayoutGrid = ({
+    cards,
+    alternatingLayout = true,
+  }: {
+    cards: {
+      id: number;
+      content: React.ReactNode | string | null;
+      className: string;
+      thumbnail: string;
+    }[];
+    alternatingLayout?: boolean;
+  }) => {
     return (
       <div className="relative">
-        <LayoutGrid 
-          cards={cards} 
-          alternatingLayout={alternatingLayout}
-        />
-        
-        {/* Enhanced mobile modal styles */}
-        <style jsx global>{`
-          @media (max-width: 768px) {
-            /* Ensure modal overlays are fully interactive on mobile */
-            .layout-grid-overlay,
-            [data-layout-grid-overlay],
-            .modal-overlay,
-            [role="dialog"]::backdrop {
-              position: fixed !important;
-              top: 0 !important;
-              left: 0 !important;
-              right: 0 !important;
-              bottom: 0 !important;
-              width: 100vw !important;
-              height: 100vh !important;
-              z-index: 9999 !important;
-              background: rgba(0, 0, 0, 0.8) !important;
-              backdrop-filter: blur(4px) !important;
-              touch-action: manipulation !important;
-              -webkit-touch-callout: none !important;
-              -webkit-user-select: none !important;
-              user-select: none !important;
-              cursor: pointer !important;
-              pointer-events: auto !important;
-            }
-            
-            /* Make the entire overlay clickable */
-            .layout-grid-overlay *,
-            [data-layout-grid-overlay] *,
-            .modal-overlay * {
-              pointer-events: none !important;
-            }
-            
-            /* But allow the actual modal content to be interactive */
-            .layout-grid-modal-content,
-            [data-modal-content],
-            .modal-content,
-            img[data-modal-image] {
-              pointer-events: auto !important;
-              cursor: default !important;
-              touch-action: manipulation !important;
-            }
-            
-            /* Add a close button for mobile */
-            .layout-grid-overlay::before,
-            [data-layout-grid-overlay]::before,
-            .modal-overlay::before {
-              content: "✕" !important;
-              position: fixed !important;
-              top: 20px !important;
-              right: 20px !important;
-              width: 40px !important;
-              height: 40px !important;
-              color: white !important;
-              font-size: 24px !important;
-              font-weight: bold !important;
-              background: rgba(0, 0, 0, 0.8) !important;
-              border-radius: 50% !important;
-              display: flex !important;
-              align-items: center !important;
-              justify-content: center !important;
-              z-index: 10001 !important;
-              cursor: pointer !important;
-              pointer-events: auto !important;
-              touch-action: manipulation !important;
-              border: 2px solid rgba(255, 255, 255, 0.3) !important;
-            }
-            
-            /* Add tap anywhere hint */
-            .layout-grid-overlay::after,
-            [data-layout-grid-overlay]::after,
-            .modal-overlay::after {
-              content: "Tap anywhere to close" !important;
-              position: fixed !important;
-              bottom: 20px !important;
-              left: 50% !important;
-              transform: translateX(-50%) !important;
-              color: white !important;
-              font-size: 14px !important;
-              background: rgba(0, 0, 0, 0.6) !important;
-              padding: 8px 16px !important;
-              border-radius: 20px !important;
-              z-index: 10001 !important;
-              pointer-events: none !important;
-            }
-          }
-        `}</style>
+        <LayoutGrid cards={cards} alternatingLayout={alternatingLayout} />
       </div>
     );
   };
@@ -397,9 +317,26 @@ const Project = () => {
             <div className="w-full mb-6">
             <EnhancedLayoutGrid cards={makerlabCards} alternatingLayout={true} />
           </div>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/IWi38EziV8w?si=tO393k8JK--aLAKF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <br/>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/WcGGAOJ4Shc?si=qmnwsHhmaK6XT31L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div className="w-full max-w-md mx-auto mb-4 aspect-video">
+            <iframe
+              className="w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/IWi38EziV8w?si=tO393k8JK--aLAKF"
+              title="MakerLab real-time clock lamp video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+          <div className="w-full max-w-md mx-auto mb-4 aspect-video">
+            <iframe
+              className="w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/WcGGAOJ4Shc?si=qmnwsHhmaK6XT31L"
+              title="MakerLab AI-powered fencing tracking camera video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
         </div>
       ),
     },

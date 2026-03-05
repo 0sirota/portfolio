@@ -27,19 +27,6 @@ const Header = () => {
     setSidebarOpen(false);
   };
 
-  // Prevent body scroll when sidebar is open (better mobile UX)
-  useEffect(() => {
-    if (sidebarOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [sidebarOpen]);
-
   const links = [
     {
       title: "Home",
@@ -109,7 +96,7 @@ const Header = () => {
 
           {/* Mobile Navigation: Burger Menu */}
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors z-40 relative cursor-pointer"
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors relative cursor-pointer"
             onClick={toggleSidebar}
             aria-label="Toggle menu"
             type="button"
@@ -124,52 +111,22 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Sidebar Overlay */}
-      <div
-        className={`fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden transition-opacity duration-300 cursor-pointer ${
-          sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={closeSidebar}
-        style={{ cursor: "pointer", touchAction: "manipulation" }}
-        role="button"
-        aria-label="Close sidebar"
-      />
-
-      {/* Mobile Sidebar */}
-      <div
-        className={`fixed top-0 right-0 h-full w-auto min-w-[220px] bg-white dark:bg-zinc-900 shadow-2xl transform transition-all duration-300 ease-in-out z-50 md:hidden ${
-          sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-        }`}
-      >
-        <div className="flex justify-end p-3">
-          <button
-            onClick={closeSidebar}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition-all duration-200 hover:scale-110 cursor-pointer"
-            aria-label="Close menu"
-            type="button"
-            style={{ cursor: "pointer", touchAction: "manipulation" }}
-          >
-            <IconX className="h-6 w-6 text-black dark:text-neutral-200" />
-          </button>
-        </div>
-
-        <nav className="px-3 pb-3">
-          <ul className="space-y-2">
+      {/* Mobile dropdown menu */}
+      {sidebarOpen && (
+        <nav className="md:hidden bg-gray-50 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 px-4 pb-3 shadow-md">
+          <ul className="space-y-1 pt-2">
             {links.map((link, index) => (
               <li key={index}>
                 <a
                   href={link.href}
                   target={link.target}
                   onClick={closeSidebar}
-                  className="flex items-center space-x-4 px-3 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-200 group"
+                  className="flex items-center space-x-3 px-2 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors duration-150"
                 >
-                  <div className="h-6 w-6 flex-shrink-0">
-                    {React.cloneElement(link.icon, {
-                      className:
-                        "h-full w-full text-neutral-600 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200",
-                    })}
-                  </div>
-                  <span className="text-base text-neutral-800 dark:text-neutral-200 font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 whitespace-nowrap">
+                  <span className="h-5 w-5 flex-shrink-0 text-neutral-600 dark:text-neutral-400">
+                    {link.icon}
+                  </span>
+                  <span className="text-sm text-neutral-800 dark:text-neutral-200 font-medium">
                     {link.title}
                   </span>
                 </a>
@@ -177,7 +134,7 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-      </div>
+      )}
     </>
   );
 };
