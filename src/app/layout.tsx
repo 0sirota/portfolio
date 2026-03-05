@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico", // Ensure this path points to the favicon in the public directory
   },
+  verification: {
+    google: "_--fYijHPCl_XyqyGlooUBvIu6TNkl3tu880N6izZYk",
+  },
 };
 
 export default function RootLayout({
