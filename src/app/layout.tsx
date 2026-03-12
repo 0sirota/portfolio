@@ -13,10 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Oliver's Portfolio",
-  description: "Welcome to my portfolio!",
+  title: "Oliver Sirota's Portfolio",
+  description: "A collection of projects I've worked on in one place.",
   icons: {
     icon: "/favicon.ico", // Ensure this path points to the favicon in the public directory
+  },
+  openGraph: {
+    title: "Oliver Sirota's Portfolio",
+    description: "A collection of projects I've worked on in one place.",
+    url: "https://oliver-sirota.vercel.app", 
+    siteName: "Oliver Sirota's Portfolio",
+    type: "website",
   },
   verification: {
     google: "_--fYijHPCl_XyqyGlooUBvIu6TNkl3tu880N6izZYk",
