@@ -14,9 +14,13 @@ import {
 export const DraggableCardBody = ({
   className,
   children,
+  hideGlare = false,
+  disableChrome = false,
 }: {
   className?: string;
   children?: React.ReactNode;
+  hideGlare?: boolean;
+  disableChrome?: boolean;
 }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -163,17 +167,21 @@ export const DraggableCardBody = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative min-h-96 w-80 overflow-hidden rounded-md bg-neutral-100 p-6 shadow-2xl transform-3d dark:bg-neutral-900",
+        disableChrome
+          ? "relative overflow-visible rounded-none bg-transparent p-0 shadow-none transform-3d dark:bg-transparent"
+          : "relative min-h-96 w-80 overflow-hidden rounded-md bg-neutral-100 p-6 shadow-2xl transform-3d dark:bg-neutral-900",
         className,
       )}
     >
       {children}
-      <motion.div
-        style={{
-          opacity: glareOpacity,
-        }}
-        className="pointer-events-none absolute inset-0 bg-white select-none"
-      />
+      {!hideGlare && (
+        <motion.div
+          style={{
+            opacity: glareOpacity,
+          }}
+          className="pointer-events-none absolute inset-0 bg-white select-none"
+        />
+      )}
     </motion.div>
   );
 };
