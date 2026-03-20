@@ -7,6 +7,7 @@ import AboutSection from "../components/aboutSection";
 import ProjectsSection from "../components/projectSection";
 import ResumeSection from "../components/resumeSection";
 import ContactSection from "../components/contactSection";
+import CertificationsSection from "../components/certificationsSection";
 
 import Footer from "../components/footer";
 import MacbookScrollDemo from "../components/macbook";
@@ -61,6 +62,7 @@ export default function App() {
         {/* <ConstructionSection /> */}
         <HeroSection />
         {/* <AboutSection /> */}
+        <CertificationsSection />
         <ProjectsSection />
         {/* <ResumeSection /> */}
         {/* <MacbookScrollDemo /> */}
