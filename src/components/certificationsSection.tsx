@@ -41,7 +41,7 @@ const CertificationsSection = () => {
       credentialUrl:
         "https://credentials.getdbt.com/5b20409a-345b-4e67-ae02-e95da08a7e46#acc.InVyhoX1",
       logo: {
-        src: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/77798324",
+        src: "/assets/logos/dbtBadge.png",
         alt: "dbt Fundamentals badge",
       },
     },
