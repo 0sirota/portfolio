@@ -5,6 +5,7 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
   IconBriefcase,
+  IconCertificate2,
   IconFileText,
   IconMessage,
   IconMail,
@@ -45,6 +46,11 @@ const Header = () => {
       title: "Home",
       icon: <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#home",
+    },
+    {
+      title: "Certifications",
+      icon: <IconCertificate2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#certifications",
     },
     {
       title: "Projects",
