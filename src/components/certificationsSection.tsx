@@ -64,6 +64,15 @@ const CertificationsSection = () => {
         alt: "Certified SOLIDWORKS Associate badge",
       },
     },
+    {
+      title: "Fortinet Certified Fundamentals in Cybersecurity",
+      issuer: "Fortinet",
+      credentialId: "2703549319OS",
+      logo: {
+        src: "/assets/logos/FortinetCyberBadge.png",
+        alt: "Fortinet Certified Fundamentals in Cybersecurity badge",
+      },
+    },
   ];
 
   return (
@@ -71,7 +80,7 @@ const CertificationsSection = () => {
       id="certifications"
       className="w-full py-16 bg-gray-50 dark:bg-zinc-950 text-black dark:text-white"
     >
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="mb-8">
           <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
             Certifications
@@ -83,22 +92,53 @@ const CertificationsSection = () => {
         </div>
 
         <DraggableCardContainer className="w-full">
-          <div className="grid w-full max-w-5xl grid-cols-1 items-center justify-center gap-10 md:grid-cols-2 mx-auto">
+          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {certifications.map((cert) => (
               <div
                 key={`${cert.title}-${cert.credentialId ?? "no-id"}`}
-                className="group relative flex min-h-[640px] items-center justify-center overflow-visible"
+                className="group relative overflow-visible rounded-2xl border border-neutral-200 bg-white/80 p-5 shadow-sm backdrop-blur-sm dark:border-neutral-800 dark:bg-zinc-900/70"
               >
-                {/* Text behind the draggable badge */}
-                <div className="absolute inset-0 z-0 flex items-center justify-center px-6 text-center">
-                  <div className="max-w-[19rem]">
-                    <h3 className="text-lg font-semibold leading-snug">
+                <div className="flex h-full items-center gap-4">
+                  <DraggableCardBody
+                    className="z-10 h-[11rem] w-[11rem] shrink-0 rounded-[1.25rem] bg-transparent p-0 shadow-none border-none ring-0 outline-none overflow-visible"
+                    hideGlare
+                    disableChrome
+                  >
+                    <div className="relative h-full w-full">
+                      {cert.logo?.src ? (
+                        <img
+                          src={cert.logo.src}
+                          alt={cert.logo.alt ?? cert.title}
+                          className={
+                            cert.title === "Neural Networks and Deep Learning"
+                              ? "pointer-events-none relative z-10 h-full w-full rounded-2xl object-contain scale-[1.1] origin-center"
+                              : "pointer-events-none relative z-10 h-full w-full rounded-2xl object-contain scale-[1.02] origin-center"
+                          }
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div
+                          className={`pointer-events-none relative z-10 h-full w-full rounded-2xl flex items-center justify-center ${
+                            cert.logo?.bgClassName ??
+                            "bg-gradient-to-br from-zinc-700 to-zinc-900"
+                          } ${cert.logo?.textClassName ?? "text-white"}`}
+                          aria-hidden="true"
+                        >
+                          <span className="text-4xl font-extrabold">
+                            {cert.logo?.letter ?? "✓"}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </DraggableCardBody>
+
+                  <div className="min-w-0">
+                    <h3 className="text-base font-semibold leading-snug md:text-lg">
                       {cert.title}
                     </h3>
-                    <p className="text-sm text-neutral-700 dark:text-neutral-300 mt-1">
+                    <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
                       {cert.issuer}
                     </p>
-
                     {cert.credentialId && (
                       <p className="mt-4 text-xs text-neutral-600 dark:text-neutral-400">
                         <span className="text-neutral-900 dark:text-neutral-200 font-medium">
@@ -120,40 +160,6 @@ const CertificationsSection = () => {
                     )}
                   </div>
                 </div>
-
-                <DraggableCardBody
-                  className="z-10 h-[24rem] w-[24rem] rounded-[2rem] bg-transparent p-0 shadow-none border-none ring-0 outline-none overflow-visible"
-                  hideGlare
-                  disableChrome
-                >
-                  <div className="relative h-full w-full">
-                    {cert.logo?.src ? (
-                      <img
-                        src={cert.logo.src}
-                        alt={cert.logo.alt ?? cert.title}
-                        className={
-                          cert.title ===
-                          "Neural Networks and Deep Learning"
-                            ? "pointer-events-none relative z-10 h-full w-full rounded-3xl object-contain scale-[1.15] origin-center"
-                            : "pointer-events-none relative z-10 h-full w-full rounded-3xl object-contain scale-[1.05] origin-center"
-                        }
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div
-                        className={`pointer-events-none relative z-10 h-full w-full rounded-3xl flex items-center justify-center ${
-                          cert.logo?.bgClassName ??
-                          "bg-gradient-to-br from-zinc-700 to-zinc-900"
-                        } ${cert.logo?.textClassName ?? "text-white"}`}
-                        aria-hidden="true"
-                      >
-                        <span className="text-5xl font-extrabold">
-                          {cert.logo?.letter ?? "✓"}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </DraggableCardBody>
               </div>
             ))}
           </div>
