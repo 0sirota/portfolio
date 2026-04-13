@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website
 
-## Getting Started
+A modern, interactive portfolio website built with Next.js and React.
 
-First, run the development server:
+This project showcases:
+- Featured projects
+- Certifications
+- Contact section with form submission
+- Custom animated UI components and 3D visual elements
+
+## Tech Stack
+
+- Next.js 15
+- React 18 + TypeScript
+- Tailwind CSS
+- Framer Motion
+- Three.js (`@react-three/fiber`, `@react-three/drei`)
+- Sonner (toast notifications)
+
+## Run Locally
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev`: Start local development server
+- `npm run build`: Create production build and run lint checks
+- `npm run start`: Start production server
+- `npm run lint`: Run linting
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app`: App router pages and global styles
+- `src/components`: Portfolio sections and reusable UI components
+- `public`: Static assets (logos, icons, 3D models)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact Form Configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The contact form currently uses EmailJS. If you are forking this repository, replace the EmailJS service/template/public key values in `src/components/contactSection.tsx` with your own credentials.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This app can be deployed on Vercel or any platform that supports Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Vercel quick start: [https://vercel.com/new](https://vercel.com/new)
+- Next.js deployment docs: [https://nextjs.org/docs/app/building-your-application/deploying](https://nextjs.org/docs/app/building-your-application/deploying)
