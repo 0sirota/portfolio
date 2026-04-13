@@ -369,7 +369,7 @@ const Project = () => {
             ScrumScape Web App – Agile Project Management Platform
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Developed ScrumScape, a comprehensive project management web application designed to streamline agilev development workflows. 
+            Developed ScrumScape, a comprehensive project management web application designed to streamline agile development workflows. 
             Created as part of a university Software Engineering unit, working collaboratively with a team of six developers following strict client specifications and requirements.
              The platform features sprint planning, task management, team‑collaboration tools, and progress‑tracking capabilities. 
              Built using a robust tech stack including <strong>PHP</strong> (managed through <strong>phpMyAdmin</strong>) and a <strong>MySQL</strong> database on the server side, alongside <strong>JavaScript</strong>, <strong>HTML</strong>, <strong>CSS</strong>, and the <strong>Bootstrap</strong> framework for the responsive front‑end.
