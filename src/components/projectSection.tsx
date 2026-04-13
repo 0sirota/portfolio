@@ -249,8 +249,8 @@ const Project = () => {
             The Universal Book – Engineering Final Year Project
           </h3>
           <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-6">
-            Developed a web application as my Engineering Final Year Project, leading a team of six students. 
-            <strong>The Universal Book</strong> is a platform for authors to write collaboratively and publish independently of traditional publishers, while also allowing readers to discover and read these books. 
+            Developed a web application as my Engineering Final Year Project, leading a team of six students.  
+            <strong> The Universal Book</strong> is a platform for authors to write collaboratively and publish independently of traditional publishers, while also allowing readers to discover and read these books. 
             The application includes features such as live collaborative editing, an AI assistant chatbot, hate-speech detection, group chats, payment integration, NLP-based translation, video generation, and a follower/following system.
           </p>
 
